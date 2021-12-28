@@ -9,10 +9,12 @@
     width: 100%;
     font-family: Inter;
     color: #FFFFFF;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width:920px) {
     .page {
-        padding: 28px 0 36px;
+        padding: 28px 19px 36px;
     }
 }
+
