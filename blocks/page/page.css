@@ -7,6 +7,8 @@
     flex-direction  : column;
     align-items     : flex-start;
     width: 100%;
+    font-family: Inter;
+    color: #FFFFFF;
 }
 
 @media screen and (max-width:920px) {

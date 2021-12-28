@@ -1,4 +1,11 @@
 .profile{
-    max-height: 127.5px;
-    
+    min-height: 120px;
+    margin: 0;
+    margin: 40px 0 51px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    border: aqua 1px solid;
 }
