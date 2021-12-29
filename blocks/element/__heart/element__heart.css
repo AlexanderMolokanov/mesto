@@ -10,4 +10,9 @@
     width              : 22px;
     height             : 19px;
     display            : block;
+    opacity: 1;
+}
+
+.element__heart:hover {
+    opacity: .5;
 }
