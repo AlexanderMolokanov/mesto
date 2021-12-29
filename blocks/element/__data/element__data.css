@@ -1,0 +1,9 @@
+.element__data {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+    color:black;
+    /* margin: auto; */
+}
