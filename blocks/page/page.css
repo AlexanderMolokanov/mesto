@@ -1,21 +1,23 @@
 .page {
     background-color: #000000;
-    max-width       : 1280px;
-    padding         : 60px 200px 45px;
-    margin          : 0 auto;
-    display         : flex;
-    flex-direction  : column;
-    align-items     : flex-start;
-    width: 100%;
-    font-family: Inter;
+    max-width: 1280px;
+    padding: 60px 200px 45px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    font-family: 'Inter', Arial, sans-serif;
     color: #FFFFFF;
     box-sizing: border-box;
-    position: relative;
+    /* position: relative; */
+    /* margin: 0 auto; */
+    /* width: 100%; */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-box-sizing:border-box;
 }
 
-@media screen and (max-width:920px) {
+@media screen and (max-width:800px) {
     .page {
         padding: 28px 19px 36px;
     }
 }
-

@@ -1,5 +1,9 @@
 .whole-page {
     display: flex;
     flex-direction: column;
-    
+    box-sizing: border-box;
+    position: relative;
+    align-items:center;
+    width: 100%;
+     
 }

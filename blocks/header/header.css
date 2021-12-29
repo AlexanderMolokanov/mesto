@@ -4,11 +4,14 @@
     min-height: 74px;
     width: 100%;
     border-bottom: 1px solid rgba(84, 84, 84, .7);
+    box-sizing: border-box;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
 }
 
-@media screen and (max-width:920px) {
+@media screen and (max-width:781px) {
     .header {
-        margin-left: 27px;
-        min-height: 56px;
+            min-height: 56px;
     }
 }
