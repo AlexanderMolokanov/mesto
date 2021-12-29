@@ -5,5 +5,18 @@ font-weight: 900;
 line-height: 29px;
 letter-spacing: 0em;
 text-align: left;
+padding: 0;
+margin: 0;
 
+
+}
+
+@media screen and (max-width) {
+    .element__title {
+        max-width: calc(100% - 45px);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+    } 
+    
 }

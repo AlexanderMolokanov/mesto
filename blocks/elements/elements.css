@@ -1,4 +1,13 @@
 .elements {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 17px;
+    grid-row-gap: 20px;
+    align-self: center;
+}
+
+@media screen and (max-width:920px) {
+    .elements {
+        
+    }
 }
