@@ -62,6 +62,17 @@
                     </div>
                 </div>
             </section>
+            <section>
+                <div class="edit">
+                    <div class="edit__form">
+                        <div class="edit__label"></div>
+                        <div class="edit__input"></div>
+                        <div class="edit__button"></div>
+                        <div class="edit__close"></div>
+                    </div>
+
+                </div>
+            </section>
         </main>
 
         <footer class="footer">
@@ -71,3 +82,18 @@
 </body>
 
 </html>
+
+<fieldset class="form__input-container form__input-container_ctrl_texts">
+    <label for="heading" class="form__label">Заголовок</label>
+    <input type="text" class="form__item form__item_el_heading" id="heading" name="heading"
+      placeholder="О чём статья?" required>
+    <label for="subheading" class="form__label">Подзаголовок</label>
+    <input type="text" class="form__item form__item_el_subheading" id="subheading" name="subheading"
+      placeholder="Краткое описание" required>
+    <label for="main-text" class="form__label">Текст статьи</label>
+    <textarea class="form__item form__item_el_main-text" id="main-text" name="main-text"
+      placeholder="Здесь будет основной текст вашей статьи" required></textarea>
+    <label for="email" class="form__label">E-mail</label>
+    <input type="email" class="form__item form__item_el_email" id="email" name="email"
+      placeholder="hello@example.com">
+  </fieldset>
