@@ -1,0 +1,21 @@
+.edit__button-close {
+    background-color: rgba(0, 0, 0, 1);
+    background-image: url(../../../images/close_button.svg);
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    cursor: pointer;
+    background-repeat  : no-repeat;
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.edit__button-close:hover {
+    opacity: .6;
+}
+    

@@ -4,6 +4,7 @@
     box-sizing: border-box;
     position: relative;
     align-items:center;
-    width: 100%;
+    /* width: 100%; */
+    font-family: 'Inter', Arial, sans-serif;
      
 }
