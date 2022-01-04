@@ -1,4 +1,4 @@
-.edit__form {
+.popup__container {
     position: fixed;
     margin: auto;
     width: 430px;
@@ -15,4 +15,13 @@
     z-index: 4;
     padding: 34px 36px 0;
     box-sizing: border-box;
+}
+
+@media screen and (max-width: 530px) {
+    .popup__container {
+        width: 282px;
+        height: 322px;
+        padding: 22px 25px;
+
+    }
 }

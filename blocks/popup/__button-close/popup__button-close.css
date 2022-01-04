@@ -1,5 +1,5 @@
-.edit__button-close {
-    background-color: rgba(0, 0, 0, 1);
+.popup__button-close {
+    background-color: transparent;
     background-image: url(../../../images/close_button.svg);
     background-size: 32px;
     width: 32px;
@@ -15,7 +15,16 @@
     border: none;
 }
 
-.edit__button-close:hover {
+.popup__button-close:hover {
     opacity: .6;
 }
     
+@media screen and (max-width: 530px) {
+    .popup__button-close {
+        background-size: 20px;
+        width:20px;
+        height: 20px;
+        right: 0;
+        top: -36px;
+    }
+}

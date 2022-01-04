@@ -3,8 +3,7 @@
     flex-direction: column;
     box-sizing: border-box;
     position: relative;
-    align-items:center;
-    /* width: 100%; */
+    align-items: center;
+    background-color: #000000;
     font-family: 'Inter', Arial, sans-serif;
-     
 }

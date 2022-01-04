@@ -1,4 +1,4 @@
-.edit {
+.popup {
     display: none;
     position: absolute;
     left: 0;
@@ -9,3 +9,4 @@
     margin: 0;
     padding: 0;
 }
+
