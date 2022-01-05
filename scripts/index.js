@@ -9,6 +9,13 @@ const elementHeart = document.querySelectorAll('.element__heart');
 const elementHeartBlack = document.querySelector('.element__heart_black');
 const elementHeartBlackClass = 'element__heart_black';
 
+let formElement = document.querySelector('.popup__container');
+let nameInput = document.querySelector('#name-input');
+let jobInput = document.querySelector('#job-input');
+
+const profileTitle = document.querySelector('.profile__title');
+const profileSubtitle = document.querySelector('.profile__subtitle');
+
 function logCharacters(elementHeart) {
     for (let index = 0; index < elementHeart.length; index += 1) {
         //console.log(elementHeart[index]);
@@ -21,6 +28,8 @@ function logCharacters(elementHeart) {
 logCharacters(elementHeart)
 
 function openPopup() {
+    nameInput.value = profileTitle.textContent;
+    jobInput.value = profileSubtitle.textContent;
     popup.classList.add(popupButtonActiveClass);
     document.body.style.overflow = 'hidden';
 }
@@ -41,11 +50,6 @@ buttonProfileEdit.addEventListener('click', function () {
 popupButtonClose.addEventListener('click', function () {
     closePopup();
 });
-
-
-let formElement = document.querySelector('.popup__container');
-let nameInput = document.querySelector('#name-input');
-let jobInput = document.querySelector('#job-input');
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
