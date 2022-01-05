@@ -3,6 +3,7 @@
     border-radius: 2px;
     max-width: 358px;
     min-width: 238px;
+    width: 100%;
     box-sizing: border-box;
     height: 50px;
     position: relative;
