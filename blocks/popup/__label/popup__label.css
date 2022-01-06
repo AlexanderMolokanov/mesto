@@ -14,12 +14,12 @@
 
 @media screen and (max-width: 530px) {
     .popup__label {
-font-size: 18px;
-font-style: normal;
-font-weight: 900;
-line-height: 22px;
-letter-spacing: 0em;
-text-align: left;
-padding: 0 0 45px 0;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        padding: 0 0 45px 0;
     }
 }
