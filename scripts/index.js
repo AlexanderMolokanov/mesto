@@ -64,4 +64,12 @@ function formSubmitHandler(evt) {
 
 formElement.addEventListener('submit', formSubmitHandler);
 
+popup.addEventListener('click', closePopup);
+
+document.addEventListener('keydown', function(event) {
+    if (event.code === 'Escape') {
+        closePopup();
+    }
+});
+
 
