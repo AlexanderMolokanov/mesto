@@ -1,10 +1,9 @@
 .whole-page {
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    position: relative;
-    align-items: center;
     background-color: #000000;
     font-family: 'Inter', Arial, sans-serif;
-    width: 100%;
 }

@@ -31,12 +31,12 @@ function openPopup() {
     nameInput.value = profileTitle.textContent;
     jobInput.value = profileSubtitle.textContent;
     popup.classList.add(popupButtonActiveClass);
-    document.body.style.overflow = 'hidden';
+    //document.body.style.overflow = 'hidden';
 }
 
 function closePopup() {
     popup.classList.remove(popupButtonActiveClass);
-    document.body.style.overflow = '';
+    //document.body.style.overflow = '';
 }
 
 

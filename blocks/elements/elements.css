@@ -1,6 +1,5 @@
 .elements {
     display: grid;
-    position: relative;
     grid-template-columns: 282px 282px 282px;
     grid-auto-rows: 361px;
     grid-column-gap: 17px;
