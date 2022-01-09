@@ -10,11 +10,11 @@
     color: #FFFFFF;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    -webkit-box-sizing: border-box; 
+    -webkit-box-sizing: border-box;
 }
 
 @media screen and (max-width:1200px) {
     .page {
-        padding: 28px 19px 36px;
+        padding: 0;
     }
 }

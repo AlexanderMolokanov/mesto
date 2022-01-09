@@ -20,54 +20,54 @@
                 <img class="profile__image" src="./images/profile__jac-if-kusto.jpg" alt="Изображение профиля">
                 <div class="profile__info">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <button class="profile__edit"></button>
+                    <button class="profile__edit" type="button"></button>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
-                <button class="profile__add"></button>
+                <button class="profile__add" type="button"></button>
             </section>
             <section class="elements">
-                <div class="element">
-                    <img class="element__image" src="./images/Dalniy-vostok.jpg" alt="Фото">
+                <article class="element">
+                    <img class="element__image" src="./images/Dalniy-vostok.jpg" alt="Изображение природы">
                     <div class="element__data">
-                        <div class="element__title">Дальний восток</div>
-                        <div class="element__heart"></div>
+                        <h2 class="element__title">Дальний восток</h2>
+                        <button class="element__heart" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Dombay.jpg" alt="Фото">
+                </article>
+                <article class="element">
+                    <img class="element__image" src="./images/Dombay.jpg" alt="Изображение природы">
                     <div class="element__data">
-                        <div class="element__title">Домбай</div>
-                        <div class="element__heart"></div>
+                        <h2 class="element__title">Домбай</h2>
+                        <button class="element__heart" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Elbrus.jpg" alt="Фото">
+                </article>
+                <article class="element">
+                    <img class="element__image" src="./images/Elbrus.jpg" alt="Изображение природы">
                     <div class="element__data">
-                        <div class="element__title">Эльбрус</div>
-                        <div class="element__heart"></div>
+                        <h2 class="element__title">Эльбрус</h2>
+                        <button class="element__heart" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Karachaevsk.jpg" alt="Фото">
+                </article>
+                <article class="element">
+                    <img class="element__image" src="./images/Karachaevsk.jpg" alt="Изображение природы">
                     <div class="element__data">
-                        <div class="element__title">Карачаево-Черкесия</div>
-                        <div class="element__heart"></div>
+                        <h2 class="element__title">Карачаево-Черкесия</h2>
+                        <button class="element__heart" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Kolchugino.jpg" alt="Фото">
+                </article>
+                <article class="element">
+                    <img class="element__image" src="./images/Kolchugino.jpg" alt="Изображение природы">
                     <div class="element__data">
-                        <div class="element__title">Кольчугино</div>
-                        <div class="element__heart"></div>
+                        <h2 class="element__title">Кольчугино</h2>
+                        <button class="element__heart" type="button"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Moscow.jpg" alt="Фото">
+                </article>
+                <article class="element">
+                    <img class="element__image" src="./images/Moscow.jpg" alt="Изображение природы">
                     <div class="element__data">
-                        <div class="element__title">Москва</div>
-                        <div class="element__heart"></div>
+                        <h2 class="element__title">Москва</h2>
+                        <button class="element__heart" type="button"></button>
                     </div>
-                </div>
+                </article>
             </section>
         </main>
 
@@ -75,17 +75,18 @@
             <p class="footer__c-right">&copy; 2020. Mesto Russia</p>
         </footer>
 
-        <section class="popup">
+        <div class="popup">
             <div class="popup__container">
                 <h2 class="popup__label">Редактировать профиль</h2>
-                <form class="popup__form" novalidate>
-                    <input class="popup__input" id="name-input" type="text" placeholder="Имя">
-                    <input class="popup__input" id="job-input" type="text" placeholder="Род деятельности"> 
+                <form class="popup__form" novalidate method="get" id="profile-edit" action="g.mkv@yandex.ru">
+                    <input class="popup__input" id="name-input" name="name-input-name" type="text" placeholder="Имя">
+                    <input class="popup__input" id="job-input" name="job-input-name" type="text"
+                        placeholder="Род деятельности">
                     <button class="popup__button-save" type="submit">Сохранить</button>
                     <button class="popup__button-close" type="button"></button>
                 </form>
             </div>
-        </section>
+        </div>
 
 
     </div>

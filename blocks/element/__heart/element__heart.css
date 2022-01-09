@@ -10,6 +10,8 @@
     height: 19px;
     display: block;
     opacity: 1;
+    border: none;
+    background-color: transparent;
 }
 
 .element__heart:hover {
