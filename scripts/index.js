@@ -9,18 +9,16 @@ let formElement = document.querySelector('.popup__form');
 let nameInput = document.querySelector('#name-input');
 let jobInput = document.querySelector('#job-input');
 
-
-
-function openPopup() {
+function clickPopup() {
     nameInput.value = profileTitle.textContent;
     jobInput.value = profileSubtitle.textContent;
-    popup.classList.add('popup_opened');
+    popup.classList.toggle('popup_opened');
     //document.body.style.overflow = 'hidden';
+    //document.body.style.overflow = '';
 }
 
 function closePopup() {
     popup.classList.remove('popup_opened');
-    //document.body.style.overflow = '';
 }
 
 
@@ -31,8 +29,8 @@ function formSubmitHandler(evt) {
     closePopup();
 };
 
-buttonProfileEdit.addEventListener('click', openPopup);
-popupButtonClose.addEventListener('click', closePopup);
+buttonProfileEdit.addEventListener('click', clickPopup);
+popupButtonClose.addEventListener('click', clickPopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
 
