@@ -8,9 +8,9 @@ const buttonPlaceAdd = document.querySelector('.profile__add');
 const popupPlaceAdd = document.querySelector('#add_place');
 const placeButtonClose = document.querySelector('#place-close-button');
 
-const popupImageAdd = document.querySelector('.popup-image')
-const popupImage = document.querySelector('#image-1');
-const popupImageClose = document.querySelector('#popup__image-close-button');
+// const popupImageAdd = document.querySelector('#popup-image')
+// const popupImage = document.querySelector('#image-1');
+// const popupImageClose = document.querySelector('#popup__image-close-button');
 
 
 let formElement = document.querySelector('.popup__form');
@@ -29,9 +29,9 @@ function openPopup() {
     popupPlaceAdd.classList.toggle('popup_opened');
 }
 
-function shiftPopupImage() {
-    popupImageAdd.classList.toggle('popup_opened');
-}
+// function shiftPopupImage() {
+//     popupImageAdd.classList.toggle('popup_opened');
+// }
 
 function closePopup() {
     popup.classList.remove('popup_opened');
@@ -51,8 +51,8 @@ formElement.addEventListener('submit', formSubmitHandler);
 buttonPlaceAdd.addEventListener('click', openPopup);
 placeButtonClose.addEventListener('click', openPopup);
 
-popupImage.addEventListener('click', shiftPopupImage);
-popupImageClose.addEventListener('click', shiftPopupImage);
+// popupImage.addEventListener('click', shiftPopupImage);
+// popupImageClose.addEventListener('click', shiftPopupImage);
 
 
 // document.addEventListener('keydown', function (event) {
