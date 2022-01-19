@@ -4,6 +4,14 @@ const popup = document.querySelector('.popup');
 const elementHeart = document.querySelectorAll('.element__heart');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
+const buttonPlaceAdd = document.querySelector('.profile__add');
+const popupPlaceAdd = document.querySelector('#add_place');
+const placeButtonClose = document.querySelector('#place-close-button');
+
+const popupImageAdd = document.querySelector('.popup-image')
+const popupImage = document.querySelector('#image-1');
+const popupImageClose = document.querySelector('#popup__image-close-button');
+
 
 let formElement = document.querySelector('.popup__form');
 let nameInput = document.querySelector('#name-input');
@@ -17,10 +25,17 @@ function clickPopup() {
     //document.body.style.overflow = '';
 }
 
+function openPopup() {
+    popupPlaceAdd.classList.toggle('popup_opened');
+}
+
+function shiftPopupImage() {
+    popupImageAdd.classList.toggle('popup_opened');
+}
+
 function closePopup() {
     popup.classList.remove('popup_opened');
 }
-
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
@@ -33,6 +48,12 @@ buttonProfileEdit.addEventListener('click', clickPopup);
 popupButtonClose.addEventListener('click', clickPopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
+buttonPlaceAdd.addEventListener('click', openPopup);
+placeButtonClose.addEventListener('click', openPopup);
+
+popupImage.addEventListener('click', shiftPopupImage);
+popupImageClose.addEventListener('click', shiftPopupImage);
+
 
 // document.addEventListener('keydown', function (event) {
 //     if (event.code === 'Escape') {
@@ -44,12 +65,40 @@ formElement.addEventListener('submit', formSubmitHandler);
 // const buttonProfileAdd = document.querySelector(selectors: '.profile__add');
 //popup.addEventListener('click', closePopup);
 
-// function logCharacters(element) {
-//     for (let index = 0; index < elementHeart.length; index += 1) {
-//         element[index].addEventListener('click', function () {
-//             element[index].classList.toggle('element__heart_like');
-//         });
-//     }
-// }
+function logCharacters(element) {
+    for (let index = 0; index < elementHeart.length; index += 1) {
+        element[index].addEventListener('click', function () {
+            element[index].classList.toggle('element__heart_like');
+        });
+    }
+}
 
-// logCharacters(elementHeart)
+logCharacters(elementHeart)
+
+
+// export const Cards = [
+//     {
+//         name: "Дальний восток",
+//         link: "https://drive.google.com/file/d/1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j/view?usp=sharing",
+//     },
+//     {
+//         name: "Домбай",
+//         link: "https://drive.google.com/uc?export=download&id=19GpMhC0OM20Kicd9koU2uzn639iZfYye",
+//     },
+//     {
+//         name: "Эльбрус",
+//         link: "https://drive.google.com/uc?export=download&id=1KtjgpgRM64pDjC5xTbCKqeDjThm2c8lc",
+//     },
+//     {
+//         name: "Карачаевск",
+//         link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
+//     },
+//     {
+//         name: "Кольчугино",
+//         link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
+//     },
+//     {
+//         name: "Москва",
+//         link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
+//     },
+// ];
