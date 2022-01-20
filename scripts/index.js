@@ -5,17 +5,17 @@ const popup = document.querySelector('.popup');
 const elementHeart = document.querySelectorAll('.element__heart');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
-// const buttonPlaceAdd = document.querySelector('.profile__add');
-// const popupPlaceAdd = document.querySelector('#add_place');
-// const placeButtonClose = document.querySelector('#place-close-button');
+const buttonPlaceAdd = document.querySelector('.profile__add');
+const popupPlaceAdd = document.querySelector('#add_place');
+const placeButtonClose = document.querySelector('#place-close-button');
 
-// const popupImageAdd = document.querySelector('#popup-image')
-// const popupImage = document.querySelector('#image-1');
-// const popupImageClose = document.querySelector('#popup__image-close-button');
+const popupImageAdd = document.querySelector('#popup-image')
+const popupImage = document.querySelector('#image-1');
+const popupImageClose = document.querySelector('#popup__image-close-button');
 
 
-let nameInput = document.querySelector('#name-input');
 let formElement = document.querySelector('.popup__form');
+let nameInput = document.querySelector('#name-input');
 let jobInput = document.querySelector('#job-input');
 
 function clickPopup() {
@@ -26,17 +26,17 @@ function clickPopup() {
     //document.body.style.overflow = '';
 }
 
-// function openPopup() {
-//     popupPlaceAdd.classList.toggle('popup_opened');
-// }
+function openPopup() {
+    popupPlaceAdd.classList.toggle('popup_opened');
+}
 
-// function shiftPopupImage() {
-//     popupImageAdd.classList.toggle('popup_opened');
-// }
+function shiftPopupImage() {
+    popupImageAdd.classList.toggle('popup_opened');
+}
 
-// function closePopup() {
-//     popup.classList.remove('popup_opened');
-// }
+function closePopup() {
+    popup.classList.remove('popup_opened');
+}
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
@@ -49,8 +49,11 @@ buttonProfileEdit.addEventListener('click', clickPopup);
 popupButtonClose.addEventListener('click', clickPopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
-// buttonPlaceAdd.addEventListener('click', openPopup);
-// placeButtonClose.addEventListener('click', openPopup);
+buttonPlaceAdd.addEventListener('click', openPopup);
+placeButtonClose.addEventListener('click', openPopup);
+
+popupImage.addEventListener('click', shiftPopupImage);
+popupImageClose.addEventListener('click', shiftPopupImage);
 
 function logCharacters(element) {
     for (let index = 0; index < elementHeart.length; index += 1) {
@@ -62,8 +65,6 @@ function logCharacters(element) {
 
 logCharacters(elementHeart)
 
-// popupImage.addEventListener('click', shiftPopupImage);
-// popupImageClose.addEventListener('click', shiftPopupImage);
 
 
 // document.addEventListener('keydown', function (event) {
