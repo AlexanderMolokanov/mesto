@@ -1,20 +1,21 @@
 const buttonProfileEdit = document.querySelector('.profile__edit');
 const popupButtonClose = document.querySelector('.popup__button-close');
 const popup = document.querySelector('.popup');
+
 const elementHeart = document.querySelectorAll('.element__heart');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
-const buttonPlaceAdd = document.querySelector('.profile__add');
-const popupPlaceAdd = document.querySelector('#add_place');
-const placeButtonClose = document.querySelector('#place-close-button');
+// const buttonPlaceAdd = document.querySelector('.profile__add');
+// const popupPlaceAdd = document.querySelector('#add_place');
+// const placeButtonClose = document.querySelector('#place-close-button');
 
 // const popupImageAdd = document.querySelector('#popup-image')
 // const popupImage = document.querySelector('#image-1');
 // const popupImageClose = document.querySelector('#popup__image-close-button');
 
 
-let formElement = document.querySelector('.popup__form');
 let nameInput = document.querySelector('#name-input');
+let formElement = document.querySelector('.popup__form');
 let jobInput = document.querySelector('#job-input');
 
 function clickPopup() {
@@ -25,17 +26,17 @@ function clickPopup() {
     //document.body.style.overflow = '';
 }
 
-function openPopup() {
-    popupPlaceAdd.classList.toggle('popup_opened');
-}
+// function openPopup() {
+//     popupPlaceAdd.classList.toggle('popup_opened');
+// }
 
 // function shiftPopupImage() {
 //     popupImageAdd.classList.toggle('popup_opened');
 // }
 
-function closePopup() {
-    popup.classList.remove('popup_opened');
-}
+// function closePopup() {
+//     popup.classList.remove('popup_opened');
+// }
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
@@ -48,8 +49,18 @@ buttonProfileEdit.addEventListener('click', clickPopup);
 popupButtonClose.addEventListener('click', clickPopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
-buttonPlaceAdd.addEventListener('click', openPopup);
-placeButtonClose.addEventListener('click', openPopup);
+// buttonPlaceAdd.addEventListener('click', openPopup);
+// placeButtonClose.addEventListener('click', openPopup);
+
+function logCharacters(element) {
+    for (let index = 0; index < elementHeart.length; index += 1) {
+        element[index].addEventListener('click', function () {
+            element[index].classList.toggle('element__heart_like');
+        });
+    }
+}
+
+logCharacters(elementHeart)
 
 // popupImage.addEventListener('click', shiftPopupImage);
 // popupImageClose.addEventListener('click', shiftPopupImage);
@@ -64,18 +75,6 @@ placeButtonClose.addEventListener('click', openPopup);
 // const popupButtonSave = document.querySelector(selectors: '.edit__button-save');
 // const buttonProfileAdd = document.querySelector(selectors: '.profile__add');
 //popup.addEventListener('click', closePopup);
-
-function logCharacters(element) {
-    for (let index = 0; index < elementHeart.length; index += 1) {
-        element[index].addEventListener('click', function () {
-            element[index].classList.toggle('element__heart_like');
-        });
-    }
-}
-
-logCharacters(elementHeart)
-
-
 // export const Cards = [
 //     {
 //         name: "Дальний восток",
