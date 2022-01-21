@@ -76,36 +76,6 @@ logCharacters(elementHeart)
 // const popupButtonSave = document.querySelector(selectors: '.edit__button-save');
 // const buttonProfileAdd = document.querySelector(selectors: '.profile__add');
 //popup.addEventListener('click', closePopup);
-<<<<<<< HEAD
-// 
-
-const initialCards = [
-    {
-        name: "Дальний восток",
-        link: "https://drive.google.com/file/d/1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j/view?usp=sharing",
-    },
-    {
-        name: "Домбай",
-        link: "https://drive.google.com/uc?export=download&id=19GpMhC0OM20Kicd9koU2uzn639iZfYye",
-    },
-    {
-        name: "Эльбрус",
-        link: "https://drive.google.com/uc?export=download&id=1KtjgpgRM64pDjC5xTbCKqeDjThm2c8lc",
-    },
-    {
-        name: "Карачаевск",
-        link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
-    },
-    {
-        name: "Кольчугино",
-        link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
-    },
-    {
-        name: "Москва",
-        link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
-    },
-];
-=======
 // export const Cards = [
 //     {
 //         name: "Дальний восток",
@@ -155,7 +125,7 @@ function addElement(name, link) {
     const trackContainer = document.createElement('article');
     trackContainer.classList.add('element');
 
-    
+
     const artistElement = document.createElement('h4');
     artistElement.classList.add('song__artist');
     artistElement.textContent = artistValue;
@@ -169,4 +139,3 @@ function addElement(name, link) {
     songsContainer.after(trackContainer);
     songsContainer.appendChild(trackContainer);
 }
->>>>>>> a4010b10531deb22c2d3e7b7385a3ef01bed1240
