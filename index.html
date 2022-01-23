@@ -25,55 +25,8 @@
                 </div>
                 <button class="profile__add" type="button"></button>
             </section>
+
             <section class="elements">
-                <article class="element">
-                    <img class="element__image" id="image-1"src="https://drive.google.com/uc?export=download&id=1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j" alt="Изображение природы">
-                    <div class="element__data">
-                        <h2 class="element__title">Дальний восток</h2>
-                        <button class="element__heart" type="button"></button>
-                    </div>
-                    <button class="element__delete" type="button"></button>
-                </article>
-                <article class="element">
-                    <img class="element__image" src="./images/Dombay.jpg" alt="Изображение природы">
-                    <div class="element__data">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__heart" type="button"></button>
-                    </div>
-                    <button class="element__delete" type="button"></button>
-                </article>
-                <article class="element">
-                    <img class="element__image" src="./images/Elbrus.jpg" alt="Изображение природы">
-                    <div class="element__data">
-                        <h2 class="element__title">Эльбрус</h2>
-                        <button class="element__heart" type="button"></button>
-                    </div>
-                    <button class="element__delete" type="button"></button>
-                </article>
-                <article class="element">
-                    <img class="element__image" src="./images/Karachaevsk.jpg" alt="Изображение природы">
-                    <div class="element__data">
-                        <h2 class="element__title">Карачаево-Черкесия</h2>
-                        <button class="element__heart" type="button"></button>
-                    </div>
-                    <button class="element__delete" type="button"></button>
-                </article>
-                <article class="element">
-                    <img class="element__image" src="./images/Kolchugino.jpg" alt="Изображение природы">
-                    <div class="element__data">
-                        <h2 class="element__title">Кольчугино</h2>
-                        <button class="element__heart" type="button"></button>
-                    </div>
-                    <button class="element__delete" type="button"></button>
-                </article>
-                <article class="element">
-                    <img class="element__image" src="./images/Moscow.jpg" alt="Изображение природы">
-                    <div class="element__data">
-                        <h2 class="element__title">Москва</h2>
-                        <button class="element__heart" type="button"></button>
-                    </div>
-                    <button class="element__delete" type="button"></button>
-                </article>
             </section>
         </main>
 
@@ -113,16 +66,29 @@
 
         <div class="popup" id="popup-image">
             <figure class="popup__image-frame">
-              <img class="popup__image" src="https://drive.google.com/uc?export=download&id=1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j" alt="Изображение природы"/>  
-              <figcaption class="popup__image-caption">Горный Алтай</figcaption>
-              <button class="popup__button-close" type="button" id="popup__image-close-button"></button>
+                <img class="popup__image"
+                    src="https://drive.google.com/uc?export=download&id=1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j"
+                    alt="Изображение природы" />
+                <figcaption class="popup__image-caption">Горный Алтай</figcaption>
+                <button class="popup__button-close" type="button" id="popup__image-close-button"></button>
             </figure>
         </div>
 
     </div>
+
+    <template id="element-template">
+        <article class="element">
+            <img class="element__image" alt="Изображение природы">
+            <div class="element__data">
+                <h2 class="element__title"></h2>
+                <button class="element__heart" type="button"></button>
+            </div>
+            <button class="element__delete" type="button"></button>
+        </article>
+    </template>
+
     <script src="./scripts/index.js">
     </script>
 </body>
 
 </html>
-

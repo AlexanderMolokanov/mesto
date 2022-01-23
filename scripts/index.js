@@ -65,8 +65,6 @@ function logCharacters(element) {
 
 logCharacters(elementHeart)
 
-
-
 // document.addEventListener('keydown', function (event) {
 //     if (event.code === 'Escape') {
 //         closePopup();
@@ -76,32 +74,97 @@ logCharacters(elementHeart)
 // const popupButtonSave = document.querySelector(selectors: '.edit__button-save');
 // const buttonProfileAdd = document.querySelector(selectors: '.profile__add');
 //popup.addEventListener('click', closePopup);
-// export const Cards = [
-//     {
-//         name: "Дальний восток",
-//         link: "https://drive.google.com/file/d/1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j/view?usp=sharing",
-//     },
-//     {
-//         name: "Домбай",
-//         link: "https://drive.google.com/uc?export=download&id=19GpMhC0OM20Kicd9koU2uzn639iZfYye",
-//     },
-//     {
-//         name: "Эльбрус",
-//         link: "https://drive.google.com/uc?export=download&id=1KtjgpgRM64pDjC5xTbCKqeDjThm2c8lc",
-//     },
-//     {
-//         name: "Карачаевск",
-//         link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
-//     },
-//     {
-//         name: "Кольчугино",
-//         link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
-//     },
-//     {
-//         name: "Москва",
-//         link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
-//     },
-// ];
+// export 
+
+const initialCards = [
+    {
+        name: "Дальний восток",
+        link: "https://drive.google.com/file/d/1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j/view?usp=sharing",
+    },
+    { 
+        name: "Домбай",
+        link: "https://drive.google.com/uc?export=download&id=19GpMhC0OM20Kicd9koU2uzn639iZfYye",
+    },
+    {
+        name: "Эльбрус",
+        link: "https://drive.google.com/uc?export=download&id=1KtjgpgRM64pDjC5xTbCKqeDjThm2c8lc",
+    },
+    {
+        name: "Карачаевск",
+        link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
+    },
+    {
+        name: "Кольчугино",
+        link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
+    },
+    {
+        name: "Москва",
+        link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
+    },
+];
+
+const todosElement = document.querySelector('.elements');
+const todoTemplate = document.querySelector('#element-template')
+const todo = todoTemplate.cloneNode(true);
+
+const todoImage = todo.querySelector('.element__image');
+const todoTitle = todo.querySelector('.element__title');
+
+// const todoHeart = todo.querySelector('.element__heart');
+// const todoDelete = todo.querySelector('.element__delete');
+
+todoHeart.addEventListener('click', handleLikeButton)
+todoDelete.addEventListener('click', handleDeleteButton)
+
+const handleLikeButton = (e) => { 
+    e.target.classList.toggle('todo__like-button_is-active')
+}
+
+const handleDeleteButton = (e) => {
+    e.target.closest('.todo').remove();
+}
+
+
+const getTodoElement = (item) => {
+  
+    const todo = todoTemplate.cloneNode(true);
+    const todoTitle = todo.querySelector('.element__title');
+    const todoLink = todo.querySelector('.element__image');
+    const todoLikeButton = todo.querySelector('.todo__like-button');
+    const todoDeleteButton = todo.querySelector('.todo__delete-button');
+
+    // todoLikeButton.addEventListener('click', handleLikeButton);
+    // todoDeleteButton.addEventListener('click', handleDeleteButton);
+
+    todoTitle.textContent = item.name;
+    todoLink.src = item.link;
+
+    return todo;
+}
+
+const renderTodo = (item, wrap) => {
+    const todo = getTodoElement(item)
+    wrap.prepend(todo)
+}
+
+initialCards.forEach(item => {
+    renderTodo(item, todosWrap)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function addElement(artistValue, titleValue) {
