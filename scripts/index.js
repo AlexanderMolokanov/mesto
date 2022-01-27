@@ -104,8 +104,8 @@ const initialCards = [
 ];
 
 const todosElement = document.querySelector('.elements');
-// const todoTemplate = document.querySelector('#element-template')
-// const todo = todoTemplate.cloneNode(true);
+const todoTemplate = document.querySelector('#element-template')
+const todo = todoTemplate.cloneNode(true);
 
 // const todoImage = todo.querySelector('.element__image');
 // const todoTitle = todo.querySelector('.element__title');
@@ -117,14 +117,6 @@ const todosElement = document.querySelector('.elements');
 // todoDelete.addEventListener('click', handleDeleteButton)
 
 
-
-
-
-
-
-
-
-
 const handleLikeButton = (e) => { 
     e.target.classList.toggle('todo__like-button_is-active')
 }
@@ -133,22 +125,20 @@ const handleDeleteButton = (e) => {
     e.target.closest('.todo').remove();
 }
 
-const getTodoElement = (item) => {
+const todoCard = (item) => {
   
-    const template = (item) => {
-`  
-    <article class="element">
-        <img class="element__image" alt="Изображение природы">
-        <div class="element__data">
-            <h2 class="element__title"></h2>
-            <button class="element__heart" type="button"></button>
-        </div>
-        <button class="element__delete" type="button"></button>
-    </article>
-`
-
-
-}
+//     const template = (item) => {
+// `  
+//     <article class="element">
+//         <img class="element__image" alt="Изображение природы">
+//         <div class="element__data">
+//             <h2 class="element__title"></h2>
+//             <button class="element__heart" type="button"></button>
+//         </div>
+//         <button class="element__delete" type="button"></button>
+//     </article>
+// `
+// }
 
     const todo = todoTemplate.cloneNode(true);
     const todoTitle = todo.querySelector('.element__title');
@@ -165,13 +155,13 @@ const getTodoElement = (item) => {
     return todo;
 }
 
-const renderTodo = (item, wrap) => {
+const addCardToContainer = (item, wrap) => {
     const todo = getTodoElement(item)
     wrap.prepend(todo)
 }
 
 initialCards.forEach(item => {
-    renderTodo(item, todosWrap)
+    addCardToContainer(item, todosElement)
 })
 
 
