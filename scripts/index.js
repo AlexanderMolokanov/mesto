@@ -1,7 +1,7 @@
 const initialElements = [
     {
         name: "Дальний восток",
-        link: "https://github.com/AlexanderMolokanov/mesto/blob/tasksolv/images/Dalniy-vostok.jpgпше",
+        link: "https://drive.google.com/uc?export=download&id=1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j",
     },
     {
         name: "Домбай",
@@ -25,26 +25,13 @@ const initialElements = [
     },
 ];
 
+const handleLikeButton = (e) => {
+    e.target.classList.toggle('element__heart_like')
+}
 
-// const todoTemplate = template.cloneNode(true);
-
-// const todoImage = todo.querySelector('.element__image');
-// const todoTitle = todo.querySelector('.element__title');
-
-// const todoHeart = todo.querySelector('.element__heart');
-// const todoDelete = todo.querySelector('.element__delete');
-
-// todoHeart.addEventListener('click', handleLikeButton)
-// todoDelete.addEventListener('click', handleDeleteButton)
-
-
-// const handleLikeButton = (e) => {
-//     e.target.classList.toggle('todo__like-button_is-active')
-// }
-
-// const handleDeleteButton = (e) => {
-//     e.target.closest('.todo').remove();
-// }
+const handleDeleteButton = (e) => {
+    e.target.closest('.element').remove();
+}
 const elementPlase = document.querySelector('.elements');
 
 
@@ -53,10 +40,10 @@ const todoElement = (item) => {
     const todoTemplate = template.content.cloneNode(true);
     const todoTitle = todoTemplate.querySelector('.element__title');
     const todoLink = todoTemplate.querySelector('.element__image');
-    const todoLikeButton = todoTemplate.querySelector('.todo__like-button');
-    const todoDeleteButton = todoTemplate.querySelector('.todo__delete-button');
-    // todoLikeButton.addEventListener('click', handleLikeButton);
-    // todoDeleteButton.addEventListener('click', handleDeleteButton);
+    const todoLikeButton = todoTemplate.querySelector('.element__heart');
+    const todoDeleteButton = todoTemplate.querySelector('.element__delete');
+    todoLikeButton.addEventListener('click', handleLikeButton);
+    todoDeleteButton.addEventListener('click', handleDeleteButton);
     todoTitle.textContent = item.name;
     todoLink.src = item.link;
     return todoTemplate;
@@ -70,3 +57,84 @@ const addElementToContainer = (element) => {
 initialElements.forEach((elementData) => {
     addElementToContainer(elementData);
 })
+
+const buttonProfileEdit = document.querySelector('.profile__edit');
+const profileTitle = document.querySelector('.profile__title');
+const profileSubtitle = document.querySelector('.profile__subtitle');
+
+const popup = document.querySelector('.popup');
+const popupButtonClose = document.querySelector('.popup__button-close');
+
+const buttonPlaceAdd = document.querySelector('.profile__add');
+const popupPlaceAdd = document.querySelector('#add_place');
+const placeButtonClose = document.querySelector('#place-close-button');
+
+const popupImageAdd = document.querySelector('#popup-image');
+const popupImage = document.querySelector('#image-1');
+const popupImageClose = document.querySelector('#popup__image-close-button');
+
+let formElement = document.querySelector('#profile-edit');
+let newElementTodo = document.querySelector('#place-edit');
+
+let nameInput = document.querySelector('#name-input');
+let jobInput = document.querySelector('#job-input');
+
+  
+ 
+let placeName = document.querySelector('#place-name-input');
+let placeLink = document.querySelector('#place-link-input');
+
+function clickPopup() {
+    nameInput.value = profileTitle.textContent;
+    jobInput.value = profileSubtitle.textContent;
+    popup.classList.toggle('popup_opened');
+    //document.body.style.overflow = 'hidden';
+    //document.body.style.overflow = '';
+}
+
+function openPopup() {
+    popupPlaceAdd.classList.toggle('popup_opened');
+}
+
+function shiftPopupImage() {
+    popupImageAdd.classList.toggle('popup_opened');
+}
+
+function closePopup() {
+    popup.classList.remove('popup_opened');
+}
+
+function formSubmitHandler(evt) {
+    evt.preventDefault();
+    profileTitle.textContent = nameInput.value;
+    profileSubtitle.textContent = jobInput.value;
+    closePopup();
+};
+
+
+
+
+
+
+function addNewElement(evt) {
+    evt.preventDefault();
+    let newElement = {};
+    newElement.name = placeName.value;
+    newElement.link = placeLink.value;
+    console.log(newElement) 
+    initialElements.push(newElement)
+    console.log(initialElements)
+    closePopup();
+};
+
+buttonProfileEdit.addEventListener('click', clickPopup);
+popupButtonClose.addEventListener('click', clickPopup);
+formElement.addEventListener('submit', formSubmitHandler);
+
+buttonPlaceAdd.addEventListener('click', openPopup);
+placeButtonClose.addEventListener('click', openPopup);
+
+newElementTodo.addEventListener('submit', addNewElement);
+
+// popupImage.addEventListener('click', shiftPopupImage);
+// popupImageClose.addEventListener('click', shiftPopupImage);
