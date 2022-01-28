@@ -50,7 +50,7 @@ const elementPlase = document.querySelector('.elements');
 
 const todoElement = (item) => {
     const template = document.querySelector('#element-template');
-    const todoTemplate = template.cloneNode(true);
+    const todoTemplate = template.content.cloneNode(true);
     const todoTitle = todoTemplate.querySelector('.element__title');
     const todoLink = todoTemplate.querySelector('.element__image');
     const todoLikeButton = todoTemplate.querySelector('.todo__like-button');
