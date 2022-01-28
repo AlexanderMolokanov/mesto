@@ -1,7 +1,7 @@
 const initialElements = [
     {
         name: "Дальний восток",
-        link: "https://drive.google.com/file/d/1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j/view?usp=sharing",
+        link: "https://github.com/AlexanderMolokanov/mesto/blob/tasksolv/images/Dalniy-vostok.jpgпше",
     },
     {
         name: "Домбай",
@@ -55,8 +55,8 @@ const todoElement = (item) => {
     const todoLink = todoTemplate.querySelector('.element__image');
     const todoLikeButton = todoTemplate.querySelector('.todo__like-button');
     const todoDeleteButton = todoTemplate.querySelector('.todo__delete-button');
-    todoLikeButton.addEventListener('click', handleLikeButton);
-    todoDeleteButton.addEventListener('click', handleDeleteButton);
+    // todoLikeButton.addEventListener('click', handleLikeButton);
+    // todoDeleteButton.addEventListener('click', handleDeleteButton);
     todoTitle.textContent = item.name;
     todoLink.src = item.link;
     return todoTemplate;
