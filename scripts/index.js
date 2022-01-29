@@ -49,7 +49,7 @@ const todoElement = (item) => {
     return todoTemplate;
 }
 
-const    = (element) => {
+const addElementToContainer = (element) => {
     const todo = todoElement(element);
     elementPlase.prepend(todo);
 };
@@ -74,8 +74,6 @@ const popupImage = document.querySelector('#image-1');
 const popupImageClose = document.querySelector('#popup__image-close-button');
 
 let formElement = document.querySelector('#profile-edit');
-
-
 let nameInput = document.querySelector('#name-input');
 let jobInput = document.querySelector('#job-input');
 
@@ -108,27 +106,16 @@ function formSubmitHandler(evt) {
 };
 
 const newElementTodo = document.querySelector('#place-edit');
-let placeName = document.querySelector('#place-name-input');
-let placeLink = document.querySelector('#place-link-input');
+const placeName = document.querySelector('#place-name-input');
+const placeLink = document.querySelector('#place-link-input');
 
 function addNewElement(evt) {
-    evt.preventDefault(); 
-
-    const newElement = 
-        {
-          name: placeName.value,
-          link: placeLink.value,
-        }
-
-    //const newElementTodo = newElement.todoElement();
-    const newElementTodo = todoElement(newElement);
-
-    // let newElement = {};
-    // newElement.name = placeName.value;
-    // newElement.link = placeLink.value;
-    
-    
-    closePopup();
+    evt.preventDefault();
+    const newElement = {};
+    newElement.name = placeName.value;
+    newElement.link = placeLink.value; 
+    addElementToContainer(newElement);
+    openPopup();
 };
 
 buttonProfileEdit.addEventListener('click', clickPopup);
@@ -140,5 +127,7 @@ placeButtonClose.addEventListener('click', openPopup);
 
 newElementTodo.addEventListener('submit', addNewElement);
 
-// popupImage.addEventListener('click', shiftPopupImage);
-// popupImageClose.addEventListener('click', shiftPopupImage);
+popupImage.addEventListener('click', shiftPopupImage);
+popupImageClose.addEventListener('click', shiftPopupImage);
+
+

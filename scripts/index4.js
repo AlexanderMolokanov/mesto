@@ -55,15 +55,15 @@ placeButtonClose.addEventListener('click', openPopup);
 popupImage.addEventListener('click', shiftPopupImage);
 popupImageClose.addEventListener('click', shiftPopupImage);
 
-function logCharacters(element) {
-    for (let index = 0; index < elementHeart.length; index += 1) {
-        element[index].addEventListener('click', function () {
-            element[index].classList.toggle('element__heart_like');
-        });
-    }
-}
+// function logCharacters(element) {
+//     for (let index = 0; index < elementHeart.length; index += 1) {
+//         element[index].addEventListener('click', function () {
+//             element[index].classList.toggle('element__heart_like');
+//         });
+//     }
+// }
 
-logCharacters(elementHeart)
+// logCharacters(elementHeart)
 
 // document.addEventListener('keydown', function (event) {
 //     if (event.code === 'Escape') {
