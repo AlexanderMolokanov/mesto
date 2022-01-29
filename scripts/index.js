@@ -42,12 +42,25 @@ const todoElement = (item) => {
     const todoLink = todoTemplate.querySelector('.element__image');
     const todoLikeButton = todoTemplate.querySelector('.element__heart');
     const todoDeleteButton = todoTemplate.querySelector('.element__delete');
-    todoLikeButton.addEventListener('click', handleLikeButton);
-    todoDeleteButton.addEventListener('click', handleDeleteButton);
     todoTitle.textContent = item.name;
     todoLink.src = item.link;
+    todoLink.addEventListener('click', createBigImage)
+    todoLikeButton.addEventListener('click', handleLikeButton);
+    todoDeleteButton.addEventListener('click', handleDeleteButton);
     return todoTemplate;
 }
+
+const popupImageAdd = document.querySelector('#popup-image');
+const popupImage = document.querySelector('.popup__image');
+const popupImageClose = document.querySelector('#popup__image-close-button');
+
+const createBigImage = (evt) => {
+    evt.target
+    popupImageAdd.classList.toggle('popup_opened')
+    const getFigCaption = document.querySelector('.popup__image-caption') 
+    getFigCaption.textContent = e.target.closest('.element__title').textContent;
+}
+
 
 const addElementToContainer = (element) => {
     const todo = todoElement(element);
@@ -69,9 +82,6 @@ const buttonPlaceAdd = document.querySelector('.profile__add');
 const popupPlaceAdd = document.querySelector('#add_place');
 const placeButtonClose = document.querySelector('#place-close-button');
 
-const popupImageAdd = document.querySelector('#popup-image');
-const popupImage = document.querySelector('#image-1');
-const popupImageClose = document.querySelector('#popup__image-close-button');
 
 let formElement = document.querySelector('#profile-edit');
 let nameInput = document.querySelector('#name-input');
