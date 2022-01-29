@@ -49,7 +49,7 @@ const todoElement = (item) => {
     return todoTemplate;
 }
 
-const addElementToContainer = (element) => {
+const    = (element) => {
     const todo = todoElement(element);
     elementPlase.prepend(todo);
 };
@@ -74,15 +74,11 @@ const popupImage = document.querySelector('#image-1');
 const popupImageClose = document.querySelector('#popup__image-close-button');
 
 let formElement = document.querySelector('#profile-edit');
-let newElementTodo = document.querySelector('#place-edit');
+
 
 let nameInput = document.querySelector('#name-input');
 let jobInput = document.querySelector('#job-input');
 
-  
- 
-let placeName = document.querySelector('#place-name-input');
-let placeLink = document.querySelector('#place-link-input');
 
 function clickPopup() {
     nameInput.value = profileTitle.textContent;
@@ -111,19 +107,27 @@ function formSubmitHandler(evt) {
     closePopup();
 };
 
-
-
-
-
+const newElementTodo = document.querySelector('#place-edit');
+let placeName = document.querySelector('#place-name-input');
+let placeLink = document.querySelector('#place-link-input');
 
 function addNewElement(evt) {
-    evt.preventDefault();
-    let newElement = {};
-    newElement.name = placeName.value;
-    newElement.link = placeLink.value;
-    console.log(newElement) 
-    initialElements.push(newElement)
-    console.log(initialElements)
+    evt.preventDefault(); 
+
+    const newElement = 
+        {
+          name: placeName.value,
+          link: placeLink.value,
+        }
+
+    //const newElementTodo = newElement.todoElement();
+    const newElementTodo = todoElement(newElement);
+
+    // let newElement = {};
+    // newElement.name = placeName.value;
+    // newElement.link = placeLink.value;
+    
+    
     closePopup();
 };
 
