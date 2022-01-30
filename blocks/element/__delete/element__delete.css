@@ -15,7 +15,6 @@
     opacity: 1;
     border: none;
     background-color: transparent;
-    /* z-index: 4; */
 }
 
 .element__delete:hover {

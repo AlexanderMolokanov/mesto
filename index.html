@@ -64,21 +64,20 @@
             </div>
         </div>
 
-        <div class="popup" id="popup-image">
+        <div class="popup" id="popup-image-div">
             <figure class="popup__image-frame">
-                <img class="popup__image"
-                    src="https://drive.google.com/uc?export=download&id=1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j"
+                <img class="popup__image" id="popup-image-img"
+                    src=" "
                     alt="Изображение природы" />
-                <figcaption class="popup__image-caption">Горный Алтай</figcaption>
+                <figcaption class="popup__image-caption"></figcaption>
                 <button class="popup__button-close" type="button" id="popup__image-close-button"></button>
             </figure>
         </div>
-
     </div>
 
     <template id="element-template">
         <article class="element">
-            <img class="element__image" alt="Изображение природы">
+            <img class="element__image" id="element-image" alt="Изображение природы">
             <div class="element__data">
                 <h2 class="element__title"></h2>
                 <button class="element__heart" type="button"></button>
