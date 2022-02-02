@@ -115,13 +115,11 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
 } 
 
-closePopup(changeProfilePopup) 
-
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileTitle.textContent = profileEditInput.value;
     profileSubtitle.textContent = profileEditJob.value;
-    closePopup();
+    closePopup(changeProfilePopup);
 };
 
 function addNewElement(evt) {
