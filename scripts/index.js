@@ -28,7 +28,7 @@ const initialElements = [
 const profileEditButton = document.querySelector('.profile__edit');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
-const changeProfilePopup = document.querySelector('#popup-change-profile');
+const profilePopup = document.querySelector('#popup-change-profile');
 const profileCloseButton = document.querySelector('.popup__button-close');
 const placeAddButton = document.querySelector('.profile__add');
 const placeAddPopup = document.querySelector('#add_place');
@@ -44,6 +44,7 @@ const formAddLink = document.querySelector('#place-link-input');
 const profileForm = document.querySelector('#profile-edit');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
+
 
 const handleLikeButton = (e) => {
     e.target.classList.toggle('element__heart_like');
@@ -76,50 +77,9 @@ const handlePreviewPictire = (data) => {
     openPopup(bigImagePopup)
 }
 
-function openPopup(popup) {
-    popup.classList.add('popup_opened');
-} 
-
 const addElementToContainer = (element) => {
     const todo = createElement(element);
     plaseElement.prepend(todo);
-};
-
-initialElements.forEach((elementData) => {
-    addElementToContainer(elementData);
-})
-
-function clickprofileForm() {
-    profileEditInput.value = profileTitle.textContent;
-    profileEditJob.value = profileSubtitle.textContent;
-    changeProfilePopup.classList.toggle('popup_opened');
-}
-
-function shiftAnyPopup() {
-    placeAddPopup.classList.toggle('popup_opened');
-}
-
-function addPopupImage() {
-    bigImagePopup.classList.add('popup_opened');
-}
-
-function removePopupImage() {
-    bigImagePopup.classList.remove('popup_opened');
-}
-
-function closePopup() {
-    changeProfilePopup.classList.remove('popup_opened');
-}
-
-function closePopup(popup) {
-    popup.classList.remove('popup_opened');
-} 
-
-function handleProfileFormSubmit(evt) {
-    evt.preventDefault();
-    profileTitle.textContent = profileEditInput.value;
-    profileSubtitle.textContent = profileEditJob.value;
-    closePopup(changeProfilePopup);
 };
 
 function addNewElement(evt) {
@@ -128,16 +88,42 @@ function addNewElement(evt) {
     newElement.name = formAddName.value;
     newElement.link = formAddLink.value;
     addElementToContainer(newElement);
-    newElement.name = ' ';
-    newElement.link = ' ';
-    shiftAnyPopup();
+    formAddName.value = '';
+    formAddLink.value = '';
+    closePopup(placeAddPopup);
 };
 
-profileEditButton.addEventListener('click', clickprofileForm);
-profileCloseButton.addEventListener('click', clickprofileForm);
+function openPopup(popup) {
+    popup.classList.add('popup_opened');
+}
+
+function closePopup(popup) {
+    popup.classList.remove('popup_opened');
+}
+
+function openProfileForm() {
+    profileEditInput.value = profileTitle.textContent;
+    profileEditJob.value = profileSubtitle.textContent;
+    openPopup(profilePopup);
+}
+
+function handleProfileFormSubmit(evt) {
+    evt.preventDefault();
+    profileTitle.textContent = profileEditInput.value;
+    profileSubtitle.textContent = profileEditJob.value;
+    closePopup(profilePopup);
+};
+
+
+initialElements.forEach((elementData) => {
+    addElementToContainer(elementData);
+})
+
+profileEditButton.addEventListener('click', openProfileForm);
+profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 profileForm.addEventListener('submit', handleProfileFormSubmit);
-placeAddButton.addEventListener('click', shiftAnyPopup);
-placeButtonClose.addEventListener('click', shiftAnyPopup);
+placeAddButton.addEventListener('click', () => openPopup(placeAddPopup));
+placeButtonClose.addEventListener('click', () => closePopup(placeAddPopup));
 formAddElement.addEventListener('submit', addNewElement);
-popupImage.addEventListener('click', addPopupImage);
-popupImageClose.addEventListener('click', removePopupImage);
+popupImage.addEventListener('click', () => openPopup(bigImagePopup));
+popupImageClose.addEventListener('click', () => closePopup(bigImagePopup));
