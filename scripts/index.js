@@ -119,6 +119,16 @@ initialElements.forEach((elementData) => {
     addElementToContainer(elementData);
 })
 
+
+
+document.addEventListener('keydown', function (event) {
+    if (event.code === 'Escape') {
+        const openedPopup = document.querySelector(".popup_opened");
+        closePopup(openedPopup);
+    }
+});
+
+
 profileEditButton.addEventListener('click', openProfileForm);
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 profileForm.addEventListener('submit', handleProfileFormSubmit);
@@ -127,3 +137,14 @@ placeButtonClose.addEventListener('click', () => closePopup(placeAddPopup));
 formAddElement.addEventListener('submit', addNewElement);
 popupImage.addEventListener('click', () => openPopup(bigImagePopup));
 popupImageClose.addEventListener('click', () => closePopup(bigImagePopup));
+
+
+const popups = document.querySelectorAll('.popup');
+
+popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closePopup(popup);
+        }
+    });
+});
