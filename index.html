@@ -37,11 +37,12 @@
         <div class="popup" id="popup-change-profile">
             <div class="popup__container">
                 <h2 class="popup__label">Редактировать профиль</h2>
-                <form class="popup__form" id="profile-edit" name="profile-form" method="get" 
-                    novalidate>
+                <form class="popup__form" id="profile-edit" name="profile-form" method="get" novalidate>
                     <input class="popup__input" id="name-input" name="name-input-name" type="text" placeholder="Имя">
+                    <p class="popup__error">Валя ошибка</p>
                     <input class="popup__input" id="job-input" name="job-input-name" type="text"
                         placeholder="Род деятельности">
+                    <p class="popup__error">Валя ошибка</p>
                     <button class="popup__button-save" type="submit">Сохранить</button>
                     <button class="popup__button-close" type="button"></button>
                 </form>
@@ -51,13 +52,14 @@
         <div class="popup" id="add_place">
             <div class="popup__container">
                 <h2 class="popup__label">Новое место</h2>
-                <form class="popup__form" id="place-edit" name="place-form" method="get" 
-                    novalidate>
-                    <input class="popup__input" id="place-name-input" name="place-name" type="text"
-                        placeholder="Название">
+                <form class="popup__form" id="place-edit" name="place-form" method="get" novalidate>
+                    <input class="popup__input popup__input_underlining" id="place-name-input" name="place-name"
+                        type="text" placeholder="Название">
+                        <p class="popup__error">Валя ошибка</p>
                     <input class="popup__input" id="place-link-input" name="place-link" type="url"
                         placeholder="Ссылка на картинку">
-                    <button class="popup__button-save" type="submit">Сохранить</button>
+                        <p class="popup__error">Валя ошибка</p>
+                    <button class="popup__button-save popup__button-save_disabled" type="submit">Сохранить</button>
                     <button class="popup__button-close" type="button" id="place-close-button"
                         name="place-close"></button>
                 </form>
@@ -66,9 +68,7 @@
 
         <div class="popup" id="popup-image-div">
             <figure class="popup__image-frame">
-                <img class="popup__image" id="popup-image-img"
-                    src=" "
-                    alt=" "/>
+                <img class="popup__image" id="popup-image-img" src=" " alt=" " />
                 <figcaption class="popup__image-caption"></figcaption>
                 <button class="popup__button-close" type="button" id="popup__image-close-button"></button>
             </figure>
@@ -84,7 +84,7 @@
             </div>
             <button class="element__delete" type="button"></button>
         </article>
-    </template> 
+    </template>
 
     <script src="./scripts/index.js">
     </script>
