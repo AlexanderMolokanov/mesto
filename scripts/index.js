@@ -148,3 +148,37 @@ popups.forEach((popup) => {
         }
     });
 });
+
+
+
+// const cardFormElement = document.forms.card;
+// const cardNameInput = cardFormElement.elements.cardName;
+// const cardImageInput = cardFormElement.elements.cardUrl;
+
+
+    // function clearErrorMessages() {
+    //     const inputEvent = new KeyboardEvent('input');
+    //     inputs.forEach((input) => {
+    //         input.dispatchEvent(inputEvent);
+    //         input.classList.remove('popup__input_underlining');
+    //     }); 
+    //     errorSpanElements.forEach(( span ) => {
+    //         span.textContent = '';
+    //     });
+    // }
+
+
+// function openCardPopupHandler() {
+//     openPopup(cardPopup);
+//     cardFormElement.reset();
+//     clearErrorMessages();
+// }
+
+// function submitCardHandler( event ) {
+//     event.preventDefault();
+//     createCardFromPopup();
+//     closePopup(cardPopup);
+//     cardFormElement.reset();
+// }
+
+
