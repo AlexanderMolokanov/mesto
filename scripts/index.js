@@ -45,6 +45,26 @@ const profileForm = document.querySelector('#profile-edit');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
 
+const inputs = document.querySelectorAll('.popup__input'); 
+const errorSpans = document.querySelectorAll('.popup__error'); 
+
+const buttonProfileEdit = document.querySelectorAll('#button-profile-edit');
+
+
+
+function clearErrorMessages() {
+    //const inputEvent = new KeyboardEvent('input');
+
+    inputs.forEach(( input ) => {
+        //input.dispatchEvent( inputEvent );
+        input.classList.remove('popup__input_underlining');
+        //input.value = '';
+    });
+    errorSpans.forEach((errorText) => {
+        errorText.textContent = '';
+    });
+}
+
 
 const handleLikeButton = (e) => {
     e.target.classList.toggle('element__heart_like');
@@ -64,7 +84,7 @@ const createElement = (item) => {
     todoTitle.textContent = item.name;
     elementImage.src = item.link;
     elementImage.alt = 'Изображение:' + ' ' + item.name;
-    elementImage.addEventListener('click', () => handlePreviewPictire(item))
+    elementImage.addEventListener('click', () => handlePreviewPictire(item));
     todoLikeButton.addEventListener('click', handleLikeButton);
     todoDeleteButton.addEventListener('click', handleDeleteButton);
     return todoTemplate;
@@ -102,8 +122,12 @@ function closePopup(popup) {
 }
 
 function openProfileForm() {
+    clearErrorMessages();
     profileEditInput.value = profileTitle.textContent;
     profileEditJob.value = profileSubtitle.textContent;
+    //setSubmitButtonState(profileForm, buttonProfileEdit);
+    //profilePopup.classList.remove(formsValidationConfig.disabledButtonClass)
+    //buttonProfileEdit.classList.remove('popup__button-save_disabled');
     openPopup(profilePopup);
 }
 
@@ -128,11 +152,17 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+function elementPopupEdding() {
+    openPopup(placeAddPopup);
+    //cardFormElement.reset();
+    clearErrorMessages();
+}
+
 
 profileEditButton.addEventListener('click', openProfileForm);
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 profileForm.addEventListener('submit', handleProfileFormSubmit);
-placeAddButton.addEventListener('click', () => openPopup(placeAddPopup));
+placeAddButton.addEventListener('click', elementPopupEdding);
 placeButtonClose.addEventListener('click', () => closePopup(placeAddPopup));
 formAddElement.addEventListener('submit', addNewElement);
 popupImage.addEventListener('click', () => openPopup(bigImagePopup));
