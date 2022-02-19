@@ -45,26 +45,8 @@ const profileForm = document.querySelector('#profile-edit');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
 
-const inputs = document.querySelectorAll('.popup__input'); 
-const errorSpans = document.querySelectorAll('.popup__error'); 
-
-const buttonProfileEdit = document.querySelectorAll('#button-profile-edit');
-
-
-
-function clearErrorMessages() {
-    //const inputEvent = new KeyboardEvent('input');
-
-    inputs.forEach(( input ) => {
-        //input.dispatchEvent( inputEvent );
-        input.classList.remove('popup__input_underlining');
-        //input.value = '';
-    });
-    errorSpans.forEach((errorText) => {
-        errorText.textContent = '';
-    });
-}
-
+const formProfile = document.forms.profile;
+const formCard = document.forms.card;
 
 const handleLikeButton = (e) => {
     e.target.classList.toggle('element__heart_like');
@@ -111,6 +93,7 @@ function addNewElement(evt) {
     formAddName.value = '';
     formAddLink.value = '';
     closePopup(placeAddPopup);
+    setSubmitButtonState(formCard, formsValidationConfig);
 };
 
 function openPopup(popup) {
@@ -122,13 +105,12 @@ function closePopup(popup) {
 }
 
 function openProfileForm() {
-    clearErrorMessages();
     profileEditInput.value = profileTitle.textContent;
     profileEditJob.value = profileSubtitle.textContent;
-    //setSubmitButtonState(profileForm, buttonProfileEdit);
-    //profilePopup.classList.remove(formsValidationConfig.disabledButtonClass)
-    //buttonProfileEdit.classList.remove('popup__button-save_disabled');
     openPopup(profilePopup);
+    setSubmitButtonState(formProfile, formsValidationConfig);
+    hideError(formProfile, profileEditInput, formsValidationConfig);
+    hideError(formProfile, profileEditJob, formsValidationConfig);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -143,8 +125,6 @@ initialElements.forEach((elementData) => {
     addElementToContainer(elementData);
 })
 
-
-
 document.addEventListener('keydown', function (event) {
     if (event.code === 'Escape') {
         const openedPopup = document.querySelector(".popup_opened");
@@ -153,11 +133,10 @@ document.addEventListener('keydown', function (event) {
 });
 
 function elementPopupEdding() {
+    formCard.reset();
     openPopup(placeAddPopup);
-    //cardFormElement.reset();
-    clearErrorMessages();
-}
-
+    hideError(formCard, formAddName, formsValidationConfig);
+    }
 
 profileEditButton.addEventListener('click', openProfileForm);
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
@@ -178,37 +157,4 @@ popups.forEach((popup) => {
         }
     });
 });
-
-
-
-// const cardFormElement = document.forms.card;
-// const cardNameInput = cardFormElement.elements.cardName;
-// const cardImageInput = cardFormElement.elements.cardUrl;
-
-
-    // function clearErrorMessages() {
-    //     const inputEvent = new KeyboardEvent('input');
-    //     inputs.forEach((input) => {
-    //         input.dispatchEvent(inputEvent);
-    //         input.classList.remove('popup__input_underlining');
-    //     }); 
-    //     errorSpanElements.forEach(( span ) => {
-    //         span.textContent = '';
-    //     });
-    // }
-
-
-// function openCardPopupHandler() {
-//     openPopup(cardPopup);
-//     cardFormElement.reset();
-//     clearErrorMessages();
-// }
-
-// function submitCardHandler( event ) {
-//     event.preventDefault();
-//     createCardFromPopup();
-//     closePopup(cardPopup);
-//     cardFormElement.reset();
-// }
-
 

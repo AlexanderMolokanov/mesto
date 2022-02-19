@@ -20,7 +20,6 @@ function enableValidation(data) {
 };
 
 function setFormListeners(form, config) {
-    
     const inputs = [...form.querySelectorAll(config.inputClass)]
     
     inputs.forEach(input => input.addEventListener('input', () => handleField(form, input, config)))
@@ -57,47 +56,4 @@ function setSubmitButtonState(form, config) {
 };
 
 enableValidation(formsValidationConfig);
-
-// function hasInvalidInput(inputList){
-//     return inputList.some((inputElement) => {
-//         return !inputElement.validity.valid;
-//     });
-// }
-
-// function toggleButtonState(inputList, buttonElement, validationOption){
-//     if (hasInvalidInput(inputList)) {
-//         buttonElement.setAttribute('disabled', true);
-//         buttonElement.classList.add(validationOption.inactiveButtonClass);
-//     } else {
-//         buttonElement.classList.remove(validationOption.inactiveButtonClass);
-//         buttonElement.removeAttribute('disabled');
-//     }
-// }
-
-
-
-
-
-// function hasInvalidInput(form){
-//     return form.some((inputElement) => {
-//         return !inputElement.validity.valid;
-//     });
-// }
-
-// function setSubmitButtonState(form, buttonElement) {
-//     if (hasInvalidInput(form)) {
-//         buttonElement.setAttribute('disabled', true);
-//         buttonElement.classList.add(validationOption.inactiveButtonClass);
-//     } else {
-//         buttonElement.classList.remove(validationOption.inactiveButtonClass);
-//         buttonElement.removeAttribute('disabled');
-//     }
-            
-//     const button = form.querySelector(config.submitButtonSelector)
-//     button.disabled = !form.checkValidity()
-//     button.classList.toggle(config.disabledButtonClass, !form.checkValidity());
-// };
-
-
-
 
