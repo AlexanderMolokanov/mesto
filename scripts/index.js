@@ -1,30 +1,3 @@
-const initialElements = [
-    {
-        name: "Дальний восток",
-        link: "https://drive.google.com/uc?export=download&id=1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j",
-    },
-    {
-        name: "Домбай",
-        link: "https://drive.google.com/uc?export=download&id=19GpMhC0OM20Kicd9koU2uzn639iZfYye",
-    },
-    {
-        name: "Эльбрус",
-        link: "https://drive.google.com/uc?export=download&id=1KtjgpgRM64pDjC5xTbCKqeDjThm2c8lc",
-    },
-    {
-        name: "Карачаевск",
-        link: "https://drive.google.com/uc?export=download&id=1jsh4Jjoxy698UIEZXqvIy69JUvEV-rlL",
-    },
-    {
-        name: "Кольчугино",
-        link: "https://drive.google.com/uc?export=download&id=1lYFYdLV4uhQvMVJn8HSzuQW-R40EH1o1",
-    },
-    {
-        name: "Москва",
-        link: "https://drive.google.com/uc?export=download&id=1JNyODG1cbpYjYBcVNd5gXmZYXYnn8YqI",
-    },
-];
-
 const profileEditButton = document.querySelector('.profile__edit');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
@@ -44,9 +17,9 @@ const formAddLink = document.querySelector('#place-link-input');
 const profileForm = document.querySelector('#profile-edit');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
-
 const formProfile = document.forms.profile;
 const formCard = document.forms.card;
+const popups = document.querySelectorAll('.popup');
 
 const handleLikeButton = (e) => {
     e.target.classList.toggle('element__heart_like');
@@ -90,18 +63,25 @@ function addNewElement(evt) {
     newElement.name = formAddName.value;
     newElement.link = formAddLink.value;
     addElementToContainer(newElement);
-    formAddName.value = '';
-    formAddLink.value = '';
     closePopup(placeAddPopup);
     setSubmitButtonState(formCard, formsValidationConfig);
 };
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', todoEscape);
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.remouveEventListener('keydown', todoEscape);
+}
+
+function todoEscape (event) {
+    if (event.code === 'Escape') {
+        const openedPopup = document.querySelector(".popup_opened");
+        closePopup(openedPopup);
+    }
 }
 
 function openProfileForm() {
@@ -109,8 +89,7 @@ function openProfileForm() {
     profileEditJob.value = profileSubtitle.textContent;
     openPopup(profilePopup);
     setSubmitButtonState(formProfile, formsValidationConfig);
-    hideError(formProfile, profileEditInput, formsValidationConfig);
-    hideError(formProfile, profileEditJob, formsValidationConfig);
+    hideFormError(formProfile, formsValidationConfig);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -125,30 +104,20 @@ initialElements.forEach((elementData) => {
     addElementToContainer(elementData);
 })
 
-document.addEventListener('keydown', function (event) {
-    if (event.code === 'Escape') {
-        const openedPopup = document.querySelector(".popup_opened");
-        closePopup(openedPopup);
-    }
-});
-
-function elementPopupEdding() {
+function openPopupСorrectly() {
     formCard.reset();
     openPopup(placeAddPopup);
-    hideError(formCard, formAddName, formsValidationConfig);
-    }
+    hideFormError(formCard, formsValidationConfig);
+}
 
 profileEditButton.addEventListener('click', openProfileForm);
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 profileForm.addEventListener('submit', handleProfileFormSubmit);
-placeAddButton.addEventListener('click', elementPopupEdding);
+placeAddButton.addEventListener('click', openPopupСorrectly);
 placeButtonClose.addEventListener('click', () => closePopup(placeAddPopup));
 formAddElement.addEventListener('submit', addNewElement);
 popupImage.addEventListener('click', () => openPopup(bigImagePopup));
 popupImageClose.addEventListener('click', () => closePopup(bigImagePopup));
-
-
-const popups = document.querySelectorAll('.popup');
 
 popups.forEach((popup) => {
     popup.addEventListener('click', (evt) => {

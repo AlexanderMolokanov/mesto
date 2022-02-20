@@ -29,6 +29,11 @@ function setFormListeners(form, config) {
     setSubmitButtonState(form, config)
  }
 
+ function hideFormError(form, config) {
+    const inputs = [...form.querySelectorAll(config.inputClass)]
+    inputs.forEach(input => hideError(form, input, config))
+   };
+
 function hideError(form, input, config) {
     input.classList.remove(config.inputErrorClass)
     const errorElement = form.querySelector(`#${input.id}-error`)
