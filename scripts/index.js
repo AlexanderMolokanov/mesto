@@ -1,3 +1,7 @@
+import { initialElements } from "./elements.js";
+import { Card } from "./Card.js";
+import FormValidator from "./FormValidator.js";
+
 const profileEditButton = document.querySelector('.profile__edit');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
@@ -20,6 +24,12 @@ const profileEditJob = document.querySelector('#job-input');
 const formProfile = document.forms.profile;
 const formCard = document.forms.card;
 const popups = document.querySelectorAll('.popup');
+
+const validationProfile = new FormValidator(validationOptions, profileFormElement);
+const validationCard = new FormValidator(validationOptions, cardFormElement);
+
+const cardInputs = Array.from(formCard.querySelectorAll('.popup__input'));
+const cardSubmitButton = formCard.querySelector('.submit-btn');
 
 const handleLikeButton = (e) => {
     e.target.classList.toggle('element__heart_like');
@@ -52,6 +62,27 @@ const handlePreviewPictire = (data) => {
     openPopup(bigImagePopup)
 }
 
+function openPhotoPopup(card) {
+    popupPhotoParagraph.textContent = card._alt;
+    popupPhotoImage.src = card._image;
+    popupPhotoImage.alt = card._name;
+    openPopup(bigImagePopup);
+}
+
+function createCardFromPopup() {
+    const card = {
+        link: formProfile.value,
+        name: formCard.value,
+        handleClick: openPhotoPopup,
+    }
+    const cardElement = new Card(card, '.template-element').createCard();
+    addCard(cardElement);
+}
+
+function addCard(newCard) {
+    plaseElement.prepend(newCard);
+}
+
 const addElementToContainer = (element) => {
     const todo = createElement(element);
     plaseElement.prepend(todo);
@@ -59,12 +90,13 @@ const addElementToContainer = (element) => {
 
 function addNewElement(evt) {
     evt.preventDefault();
-    const newElement = {};
-    newElement.name = formAddName.value;
-    newElement.link = formAddLink.value;
-    addElementToContainer(newElement);
+    // const newElement = {};
+    // newElement.name = formAddName.value;
+    // newElement.link = formAddLink.value;
+    // addElementToContainer(newElement);
+    createCardFromPopup();
     closePopup(placeAddPopup);
-    setSubmitButtonState(formCard, formsValidationConfig);
+    // setSubmitButtonState(formCard, formsValidationConfig);
 };
 
 function openPopup(popup) {
@@ -77,7 +109,7 @@ function closePopup(popup) {
     document.remouveEventListener('keydown', todoEscape);
 }
 
-function todoEscape (event) {
+function todoEscape(event) {
     if (event.code === 'Escape') {
         const openedPopup = document.querySelector(".popup_opened");
         closePopup(openedPopup);
@@ -87,9 +119,18 @@ function todoEscape (event) {
 function openProfileForm() {
     profileEditInput.value = profileTitle.textContent;
     profileEditJob.value = profileSubtitle.textContent;
+    validationProfile.toggleButtonState(profileInputs, profileSubmitButton);
+    validationProfile.clearErrorMessages(profileFormElement, profileInputs);
     openPopup(profilePopup);
-    setSubmitButtonState(formProfile, formsValidationConfig);
-    hideFormError(formProfile, formsValidationConfig);
+    // setSubmitButtonState(formProfile, formsValidationConfig);
+    // hideFormError(formProfile, formsValidationConfig);
+}
+
+function openCardPopupHandler() {
+    openPopup(placeAddPopup);
+    cardFormElement.reset();
+    validationCard.toggleButtonState(cardInputs, cardSubmitButton);
+    validationCard.clearErrorMessages(formCard, cardInputs);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -104,16 +145,16 @@ initialElements.forEach((elementData) => {
     addElementToContainer(elementData);
 })
 
-function openPopupСorrectly() {
-    formCard.reset();
-    openPopup(placeAddPopup);
-    hideFormError(formCard, formsValidationConfig);
-}
+// function openPopupСorrectly() {
+//     formCard.reset();
+//     openPopup(placeAddPopup);
+//     hideFormError(formCard, formsValidationConfig);
+// }
 
 profileEditButton.addEventListener('click', openProfileForm);
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 profileForm.addEventListener('submit', handleProfileFormSubmit);
-placeAddButton.addEventListener('click', openPopupСorrectly);
+placeAddButton.addEventListener('click', openCardPopupHandler);
 placeButtonClose.addEventListener('click', () => closePopup(placeAddPopup));
 formAddElement.addEventListener('submit', addNewElement);
 popupImage.addEventListener('click', () => openPopup(bigImagePopup));

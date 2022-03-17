@@ -1,4 +1,4 @@
-const initialElements = [
+export const initialElements = [
     {
         name: "Дальний восток",
         link: "https://drive.google.com/uc?export=download&id=1z-vIjHjRQSJ5HMAA23lBV7WFJqNLyw8j",
