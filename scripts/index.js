@@ -25,8 +25,9 @@ const formProfile = document.forms.profile;
 const formCard = document.forms.card;
 const popups = document.querySelectorAll('.popup');
 
-const validationOptions = {
+const formsValidationConfig = { 
     // formSelector: '.form',
+    formClass: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button-save',
     inactiveButtonClass: 'popup__button-save_disabled',
@@ -42,8 +43,8 @@ const validatorOptions = {
     errorClass: "popup__error_type_visible",
   };
 
-const validationProfile = new FormValidator(validationOptions, formProfile);
-const validationCard = new FormValidator(validationOptions, formCard);
+const validationProfile = new FormValidator(formsValidationConfig, formProfile);
+const validationCard = new FormValidator(formsValidationConfig, formCard);
 
 const cardInputs = Array.from(formCard.querySelectorAll('.popup__input'));
 const cardSubmitButton = formCard.querySelector('.submit-btn');
