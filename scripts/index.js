@@ -16,38 +16,30 @@ const popupImage = document.querySelector('#popup-image-img');
 const popupImageClose = document.querySelector('#popup__image-close-button');
 const popupImageCaption = document.querySelector('.popup__image-caption')
 const formAddElement = document.querySelector('#place-edit');
-// const formAddName = document.querySelector('#place-name-input');
-// const formAddLink = document.querySelector('#place-link-input');
+const formAddName = document.querySelector('#place-name-input');
+const formAddLink = document.querySelector('#place-link-input');
 const profileForm = document.querySelector('#profile-edit');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
-const formProfile = document.forms.profile;
+
 const formCard = document.forms.card;
 const popups = document.querySelectorAll('.popup');
 
+const formProfile = document.forms.profile;
 const formsValidationConfig = { 
-    // formSelector: '.form',
-    formClass: '.popup__form',
-    inputSelector: '.popup__input',
+    formClass: formProfile,
+    inputClass: '.popup__input',
     submitButtonSelector: '.popup__button-save',
-    inactiveButtonClass: 'popup__button-save_disabled',
+    disabledButtonClass: 'popup__button-save_disabled',
     inputErrorClass: 'popup__input_underlining',
-    errorClass: 'popup__error_state_visible'
+    errorClassVisible: 'popup__error_state_visible'
 }
-
-const validatorOptions = {
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__submit-button",
-    inactiveButtonClass: "popup__submit-button_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_type_visible",
-  };
 
 const validationProfile = new FormValidator(formsValidationConfig, formProfile);
 const validationCard = new FormValidator(formsValidationConfig, formCard);
 
 const cardInputs = Array.from(formCard.querySelectorAll('.popup__input'));
-const cardSubmitButton = formCard.querySelector('.submit-btn');
+const cardSubmitButton = formCard.querySelector('.popup__button-save');
 
 
 const handleLikeButton = (e) => {
@@ -90,13 +82,25 @@ function openPhotoPopup(card) {
 
 function createCardFromPopup() {
     const card = {
-        link: formProfile.value,
-        name: formCard.value,
+        link: formAddLink.value,
+        name: formAddName.value,
         handleClick: openPhotoPopup,
     }
     const cardElement = new Card(card, '.template-element').createCard();
     addCard(cardElement);
 }
+
+// function initCards() {
+//     cards.forEach((item) => {
+//         const card = {
+//             name: item.name,
+//             link: item.link,
+//             handleClick: openPhotoPopup
+//         }
+//         const cardElement = new Card(card, '.template-card').generateCard();
+//         addCard(cardElement);
+//     });
+// }
 
 function addCard(newCard) {
     plaseElement.prepend(newCard);
@@ -138,8 +142,8 @@ function todoEscape(event) {
 function openProfileForm() {
     profileEditInput.value = profileTitle.textContent;
     profileEditJob.value = profileSubtitle.textContent;
-    // validationProfile.toggleButtonState(profileInputs, profileSubmitButton);
-    // validationProfile.clearErrorMessages(profileFormElement, profileInputs);
+    validationProfile.toggleButtonState(cardInputs, cardSubmitButton);
+    validationProfile.clearErrorMessages(formProfile, cardInputs);
     openPopup(profilePopup);
     // setSubmitButtonState(formProfile, formsValidationConfig);
     // hideFormError(formProfile, formsValidationConfig);
@@ -148,8 +152,8 @@ function openProfileForm() {
 function openCardPopupHandler() {
     openPopup(placeAddPopup);
     formCard.reset();
-    //validationCard.toggleButtonState(cardInputs, cardSubmitButton);
-    //validationCard.clearErrorMessages(formCard, cardInputs);
+    validationCard.toggleButtonState(cardInputs, cardSubmitButton);
+    validationCard.clearErrorMessages(formCard, cardInputs);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -187,3 +191,5 @@ popups.forEach((popup) => {
     });
 });
 
+validationProfile.enableValidation();
+validationCard.enableValidation();
