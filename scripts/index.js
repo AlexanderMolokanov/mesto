@@ -27,7 +27,7 @@ const popups = document.querySelectorAll('.popup');
 
 const formProfile = document.forms.profile;
 const formsValidationConfig = { 
-    formClass: formProfile,
+    formClass: '.popup__form',
     inputClass: '.popup__input',
     submitButtonSelector: '.popup__button-save',
     disabledButtonClass: 'popup__button-save_disabled',
@@ -142,8 +142,8 @@ function todoEscape(event) {
 function openProfileForm() {
     profileEditInput.value = profileTitle.textContent;
     profileEditJob.value = profileSubtitle.textContent;
-    validationProfile.toggleButtonState(cardInputs, cardSubmitButton);
-    validationProfile.clearErrorMessages(formProfile, cardInputs);
+    // validationProfile.toggleButtonState(cardInputs, cardSubmitButton);
+    // validationProfile.clearErrorMessages(formProfile, cardInputs);
     openPopup(profilePopup);
     // setSubmitButtonState(formProfile, formsValidationConfig);
     // hideFormError(formProfile, formsValidationConfig);
