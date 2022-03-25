@@ -14,7 +14,11 @@ export class Card {
     }
 
     _addEventListeners() {
-        this._trash.addEventListener('click', (evt) => evt.target.closest('.element').remove());
+        this._trash.addEventListener('click', (evt) => {
+            this._cardElement.remove()
+            // this._cardElement = null;
+        }
+        );
         this._like.addEventListener('click', (evt) => evt.target.classList.toggle('element__heart_like'));
         this._image.addEventListener('click', () => {
             this._imageLink.src = this._link;
