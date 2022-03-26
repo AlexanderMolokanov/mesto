@@ -57,13 +57,13 @@ export class FormValidator {
   };
 
   _hasInvalidInput = () => {
+    console.log(this._inputList)
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   };
 
   enableValidation = () => {
-    this._formClass.addEventListener('submit', (evt) => evt.preventDefault());
     this._setEventListeners();
   };
 

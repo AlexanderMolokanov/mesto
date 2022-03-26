@@ -37,32 +37,6 @@ const formsValidationConfig = {
 const validationProfile = new FormValidator(formsValidationConfig, formProfile);
 const validationCard = new FormValidator(formsValidationConfig, formCard);
 
-const addCardToContainer = (card, container) => container.prepend(card);
-
-initialElements.reverse().forEach((card) => {
-    const newCard = new Card(card, '.template-element');
-    const newCardElement = newCard.createCard();
-    addCardToContainer(newCardElement, plaseElement);
-});
-
-function addCard(newCard) {
-    plaseElement.prepend(newCard);
-}
-
-function addNewElement(evt) {
-    evt.preventDefault();
-    const card = {
-        link: formAddLink.value,
-        name: formAddName.value,
-
-    }
-    const cardElement = new Card(card, '.template-element').createCard();
-    addCard(cardElement);
-    submitButtonSelector.classList.add("popup__button-save_disabled");
-    submitButtonSelector.setAttribute("disabled", "");
-    closePopup(placeAddPopup);
-};
-
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', todoEscape);
@@ -72,6 +46,33 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', todoEscape);
 }
+
+function addCard(newCard) {
+    plaseElement.prepend(newCard);
+}
+
+const createRealCard = (card) => {
+    const newCard = new Card(card, '.template-element');
+    const newCardElement = newCard.createCard();
+    return newCardElement
+}
+
+initialElements.reverse().forEach((card) => {
+    const newCardElement = createRealCard(card);
+    addCard(newCardElement)
+});
+
+function addNewElement(evt) {
+    evt.preventDefault();
+    const card = {
+        link: formAddLink.value,
+        name: formAddName.value,
+    }
+    const newCardElement = createRealCard(card);
+    addCard(newCardElement);
+    closePopup(placeAddPopup);
+};
+
 
 function todoEscape(event) {
     if (event.code === 'Escape') {
@@ -89,8 +90,8 @@ function openProfileForm() {
 
 function openCardPopupHandler() {
     formCard.reset();
-    openPopup(placeAddPopup);
     validationCard.resetValidation();
+    openPopup(placeAddPopup);
 }
 
 function handleProfileFormSubmit(evt) {
