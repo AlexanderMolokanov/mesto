@@ -1,9 +1,9 @@
 import Popup from './Popup.js';
 export default class PopupWithImage extends Popup {
-    constructor(dataSelectors) {
-        super(dataSelectors.popup);
-        this._name = this.popup.querySelector(dataSelectors.popupDescription);
-        this._image = this.popup.querySelector(dataSelectors.popupImage);
+    constructor(data) {
+        super(data.popup);
+        this._name = this.popup.querySelector(data.popupDescription);
+        this._image = this.popup.querySelector(data.popupImage);
     };
 
     open(name, link) {
@@ -14,21 +14,15 @@ export default class PopupWithImage extends Popup {
     };
 }
 
-constructor(popupSelector) {
-    this._popupSelector = document.querySelector(popupSelector);
 
-}
+// оздайте класс PopupWithImage, который наследует от Popup. Этот класс 
+// должен перезаписывать родительский метод open. В методе open класса 
+// PopupWithImage нужно вставлять в попап картинку с src изображения и 
+// подписью к картинке.
 
-open(){
-    this._popupSelector.classList.add('popup_opened')
-    document.addEventListener('keydown', this._handleEscClose);
-}
-
-
-
-function handleProfileFormSubmit(evt) {
-    evt.preventDefault();
-    profileTitle.textContent = profileEditInput.value;
-    profileSubtitle.textContent = profileEditJob.value;
-    closePopup(profilePopup);
-};
+// function handleProfileFormSubmit(evt) {
+//     evt.preventDefault();
+//     profileTitle.textContent = profileEditInput.value;
+//     profileSubtitle.textContent = profileEditJob.value;
+//     closePopup(profilePopup);
+// };

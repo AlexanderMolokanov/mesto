@@ -2,6 +2,7 @@ import Popup from './Popup.js';
 export default class PopupWithForm extends Popup {
     constructor(popupSelector, formProfile) {
         super(popupSelector);
+        this._formProfile = document.querySelector(formProfile);
     }
 
     _getInputValues() {
@@ -16,14 +17,7 @@ export default class PopupWithForm extends Popup {
         super.setEventListeners();
         добавить обработчик сабмита формы
 
-        formProfile.addEventListener('submit', (e) => {
-
-        }
-        
-        
-        handleProfileFormSubmit);
-
-        function handleProfileFormSubmit(evt) {
+        this._formProfile.addEventListener('submit', (evt) => {
             evt.preventDefault();
             profileTitle.textContent = profileEditInput.value;
             profileSubtitle.textContent = profileEditJob.value;
@@ -43,9 +37,8 @@ export default class PopupWithForm extends Popup {
 }
 
 Создайте класс PopupWithForm, который наследует от Popup.
-Этот класс:
-    Кроме селектора попапа принимает в конструктор колбэк сабмита формы.
-Содержит
+Кроме селектора попапа принимает в конструктор колбэк сабмита формы.
+    Содержит
 приватный метод _getInputValues, который собирает данные всех полей формы.
 Перезаписывает родительский метод setEventListeners.
 
