@@ -2,9 +2,16 @@ import { initialElements } from "./elements.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+
 const profileEditButton = document.querySelector('.profile__edit');
-const profileTitle = document.querySelector('.profile__name');
-const profileSubtitle = document.querySelector('.profile__job');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
 const profilePopup = document.querySelector('#popup-change-profile');
 const profileCloseButton = document.querySelector('.popup__button-close');
 const placeAddButton = document.querySelector('.profile__add');
@@ -47,10 +54,23 @@ function closePopup(popup) {
     document.removeEventListener('keydown', todoEscape);
 }
 
-// const userInfo = new UserInfo({
-//     name: userSelectors.name,
-//     job: userSelectors.job,
-// });
+const userInfo = new UserInfo({
+    name: profileName,
+    job: profileJob,
+});
+
+
+function handleProfileFormSubmit(userData) {
+    const dataUser = {
+        firstInput: userData.profileName,
+        secondInput: userData.profileJob,
+    }
+    userInfo.setUserInfo(dataUser);
+    profileForm.close();
+}
+
+
+
 
 function addCard(newCard) {
     plaseElement.prepend(newCard);
@@ -87,8 +107,8 @@ function todoEscape(event) {
 }
 
 function openProfileForm() {
-    profileEditInput.value = profileTitle.textContent;
-    profileEditJob.value = profileSubtitle.textContent;
+    profileEditInput.value = profileName.textContent;
+    profileEditJob.value = profileJob.textContent;
     validationProfile.resetValidation();
     openPopup(profilePopup);
 }
@@ -101,8 +121,8 @@ function openCardPopupHandler() {
 
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
-    profileTitle.textContent = profileEditInput.value;
-    profileSubtitle.textContent = profileEditJob.value;
+    profileName.textContent = profileEditInput.value;
+    profileJob.textContent = profileEditJob.value;
     closePopup(profilePopup);
 };
 
