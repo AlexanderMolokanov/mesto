@@ -14,9 +14,7 @@ export class UserInfo {
             this._job.textContent = newData.job
             this._name.textContent = newData.name
         }
-
     }
-
 }
 
 Класс UserInfo отвечает за управление отображением информации о пользователе на странице.Этот класс:

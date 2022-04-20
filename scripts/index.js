@@ -3,8 +3,8 @@ import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
 const profileEditButton = document.querySelector('.profile__edit');
-const profileTitle = document.querySelector('.profile__title');
-const profileSubtitle = document.querySelector('.profile__subtitle');
+const profileTitle = document.querySelector('.profile__name');
+const profileSubtitle = document.querySelector('.profile__job');
 const profilePopup = document.querySelector('#popup-change-profile');
 const profileCloseButton = document.querySelector('.popup__button-close');
 const placeAddButton = document.querySelector('.profile__add');
@@ -46,6 +46,11 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', todoEscape);
 }
+
+// const userInfo = new UserInfo({
+//     name: userSelectors.name,
+//     job: userSelectors.job,
+// });
 
 function addCard(newCard) {
     plaseElement.prepend(newCard);
