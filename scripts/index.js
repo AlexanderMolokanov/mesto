@@ -2,12 +2,12 @@ import { initialElements } from "./elements.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
-import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
-import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
+// import Card from "../components/Card.js";
+// import FormValidator from "../components/FormValidator.js";
+// import Section from "../components/Section.js";
+// import UserInfo from "../components/UserInfo.js";
+// import PopupWithImage from "../components/PopupWithImage.js";
+// import PopupWithForm from "../components/PopupWithForm.js";
 
 const profileEditButton = document.querySelector('.profile__edit');
 const profileName = document.querySelector('.profile__name');
@@ -54,20 +54,20 @@ function closePopup(popup) {
     document.removeEventListener('keydown', todoEscape);
 }
 
-const userInfo = new UserInfo({
-    name: profileName,
-    job: profileJob,
-});
+// const userInfo = new UserInfo({
+//     name: profileName,
+//     job: profileJob,
+// });
 
 
-function handleProfileFormSubmit(userData) {
-    const dataUser = {
-        firstInput: userData.profileName,
-        secondInput: userData.profileJob,
-    }
-    userInfo.setUserInfo(dataUser);
-    profileForm.close();
-}
+// function handleProfileFormSubmit(userData) {
+//     const dataUser = {
+//         firstInput: userData.profileName,
+//         secondInput: userData.profileJob,
+//     }
+//     userInfo.setUserInfo(dataUser);
+//     profileForm.close();
+// }
 
 
 
