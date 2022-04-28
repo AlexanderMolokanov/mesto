@@ -2,6 +2,8 @@ import { initialElements } from "./elements.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
+import { Section } from "./Section.js";
+
 const profileEditButton = document.querySelector('.profile__edit');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');

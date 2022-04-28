@@ -16,7 +16,6 @@ export default class PopupWithForm extends Popup {
     setEventListeners() {
         super.setEventListeners();
         добавить обработчик сабмита формы
-
         this._formProfile.addEventListener('submit', (evt) => {
             evt.preventDefault();
             profileTitle.textContent = profileEditInput.value;
@@ -42,10 +41,6 @@ export default class PopupWithForm extends Popup {
 приватный метод _getInputValues, который собирает данные всех полей формы.
 Перезаписывает родительский метод setEventListeners.
 
-
-
-
-import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
     constructor(dataSelectors, submitHandler) {
