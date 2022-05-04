@@ -8,7 +8,6 @@ export class FormValidator {
     this._errorClassVisible = options.errorClassVisible;
     this._inputList = Array.from(this._formClass.querySelectorAll(this._inputClass));
     this._buttonElement = this._formClass.querySelector(this._submitButtonSelector);
-
   }
 
   _showInputError = (inputElement, errorMessage) => {
@@ -57,7 +56,7 @@ export class FormValidator {
   };
 
   _hasInvalidInput = () => {
-    console.log(this._inputList)
+    // console.log(this._inputList)
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });

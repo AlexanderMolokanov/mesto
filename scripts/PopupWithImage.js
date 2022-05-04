@@ -19,10 +19,3 @@ export default class PopupWithImage extends Popup {
 // должен перезаписывать родительский метод open. В методе open класса 
 // PopupWithImage нужно вставлять в попап картинку с src изображения и 
 // подписью к картинке.
-
-// function handleProfileFormSubmit(evt) {
-//     evt.preventDefault();
-//     profileTitle.textContent = profileEditInput.value;
-//     profileSubtitle.textContent = profileEditJob.value;
-//     closePopup(profilePopup);
-// };

@@ -1,12 +1,20 @@
 import { initialElements } from "./elements.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
+import { Section } from "./Section.js";
+
+// import Card from "../components/Card.js";
+// import FormValidator from "../components/FormValidator.js";
+// import Section from "../components/Section.js";
+// import UserInfo from "../components/UserInfo.js";
+// import PopupWithImage from "../components/PopupWithImage.js";
+// import PopupWithForm from "../components/PopupWithForm.js";
 
 import { Section } from "./Section.js";
 
 const profileEditButton = document.querySelector('.profile__edit');
-const profileTitle = document.querySelector('.profile__title');
-const profileSubtitle = document.querySelector('.profile__subtitle');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
 const profilePopup = document.querySelector('#popup-change-profile');
 const profileCloseButton = document.querySelector('.popup__button-close');
 const placeAddButton = document.querySelector('.profile__add');
@@ -39,6 +47,7 @@ const formsValidationConfig = {
 const validationProfile = new FormValidator(formsValidationConfig, formProfile);
 const validationCard = new FormValidator(formsValidationConfig, formCard);
 
+
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', todoEscape);
@@ -49,20 +58,39 @@ function closePopup(popup) {
     document.removeEventListener('keydown', todoEscape);
 }
 
+// const userInfo = new UserInfo({
+//     name: profileName,
+//     job: profileJob,
+// });
+
+
+// function handleProfileFormSubmit(userData) {
+//     const dataUser = {
+//         firstInput: userData.profileName,
+//         secondInput: userData.profileJob,
+//     }
+//     userInfo.setUserInfo(dataUser);
+//     profileForm.close();
+// }
+
+
+
+
 function addCard(newCard) {
     plaseElement.prepend(newCard);
 }
 
 const createRealCard = (card) => {
-    const newCard = new Card(card, '.template-element');
-    const newCardElement = newCard.createCard();
-    return newCardElement
+    return new Card(card, '.template-element').createCard();
 }
 
 initialElements.reverse().forEach((card) => {
     const newCardElement = createRealCard(card);
     addCard(newCardElement)
 });
+
+// const newElement = new Section({ items: initialElements, renderer: createRealCard }, plaseElement);
+// newElement.renderItem()
 
 function addNewElement(evt) {
     evt.preventDefault();
@@ -84,8 +112,8 @@ function todoEscape(event) {
 }
 
 function openProfileForm() {
-    profileEditInput.value = profileTitle.textContent;
-    profileEditJob.value = profileSubtitle.textContent;
+    profileEditInput.value = profileName.textContent;
+    profileEditJob.value = profileJob.textContent;
     validationProfile.resetValidation();
     openPopup(profilePopup);
 }
@@ -98,8 +126,8 @@ function openCardPopupHandler() {
 
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
-    profileTitle.textContent = profileEditInput.value;
-    profileSubtitle.textContent = profileEditJob.value;
+    profileName.textContent = profileEditInput.value;
+    profileJob.textContent = profileEditJob.value;
     closePopup(profilePopup);
 };
 
