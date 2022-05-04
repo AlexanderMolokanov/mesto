@@ -1,6 +1,7 @@
 import { initialElements } from "./elements.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
+import { Section } from "./Section.js";
 
 // import Card from "../components/Card.js";
 // import FormValidator from "../components/FormValidator.js";
@@ -44,6 +45,7 @@ const formsValidationConfig = {
 const validationProfile = new FormValidator(formsValidationConfig, formProfile);
 const validationCard = new FormValidator(formsValidationConfig, formCard);
 
+
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', todoEscape);
@@ -77,15 +79,16 @@ function addCard(newCard) {
 }
 
 const createRealCard = (card) => {
-    const newCard = new Card(card, '.template-element');
-    const newCardElement = newCard.createCard();
-    return newCardElement
+    return new Card(card, '.template-element').createCard();
 }
 
 initialElements.reverse().forEach((card) => {
     const newCardElement = createRealCard(card);
     addCard(newCardElement)
 });
+
+// const newElement = new Section({ items: initialElements, renderer: createRealCard }, plaseElement);
+// newElement.renderItem()
 
 function addNewElement(evt) {
     evt.preventDefault();
