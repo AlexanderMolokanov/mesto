@@ -10,7 +10,7 @@ import { Section } from "./Section.js";
 // import PopupWithImage from "../components/PopupWithImage.js";
 // import PopupWithForm from "../components/PopupWithForm.js";
 
-import { Section } from "./Section.js";
+// import { Section } from "./Section.js";
 
 const profileEditButton = document.querySelector('.profile__edit');
 const profileName = document.querySelector('.profile__name');
@@ -80,17 +80,16 @@ function addCard(newCard) {
     plaseElement.prepend(newCard);
 }
 
-const createRealCard = (card) => {
-    return new Card(card, '.template-element').createCard();
-}
+const createRealCard = (card) => { return new Card(card, '.template-element').createCard(); }
 
-initialElements.reverse().forEach((card) => {
-    const newCardElement = createRealCard(card);
-    addCard(newCardElement)
-});
+// initialElements.reverse().forEach((card) => {
+//     const newCardElement = createRealCard(card);
+//     addCard(newCardElement)
+// });
 
-// const newElement = new Section({ items: initialElements, renderer: createRealCard }, plaseElement);
-// newElement.renderItem()
+
+const newElement = new Section({ items: initialElements, renderer: createRealCard }, plaseElement);
+newElement.renderItems()
 
 function addNewElement(evt) {
     evt.preventDefault();
