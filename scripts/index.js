@@ -73,32 +73,26 @@ function closePopup(popup) {
 //     profileForm.close();
 // }
 
-
-
-
-function addCard(newCard) {
-    plaseElement.prepend(newCard);
-}
+// function addCard(newCard) {
+//     plaseElement.prepend(newCard);
+// }
 
 const createRealCard = (card) => { return new Card(card, '.template-element').createCard(); }
 
-// initialElements.reverse().forEach((card) => {
-//     const newCardElement = createRealCard(card);
-//     addCard(newCardElement)
-// });
-
-
-const newElement = new Section({ items: initialElements, renderer: createRealCard }, plaseElement);
-newElement.renderItems()
+const elements = new Section({ items: initialElements, renderer: createRealCard }, plaseElement);
+elements.renderItems()
 
 function addNewElement(evt) {
     evt.preventDefault();
     const card = {
-        link: formAddLink.value,
         name: formAddName.value,
+        link: formAddLink.value,
     }
-    const newCardElement = createRealCard(card);
-    addCard(newCardElement);
+    // const newCardElement = createRealCard(card);
+    const newElement = new Section({ items: card, renderer: createRealCard }, plaseElement);;
+    // addCard(newCardElement); 
+    newElement.addItem();
+
     closePopup(placeAddPopup);
 };
 
