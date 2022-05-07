@@ -13,12 +13,12 @@ export class Card {
         this._imageCaption = document.querySelector(".popup__image-caption");
     }
 
-    _openBigImage() {
-        this._imageLink.src = this._link;
-        this._imageLink.alt = 'Изображение:' + ' ' + this._name;
-        this._imageCaption.textContent = this._name;
-        openPopup(bigImagePopup);
-    }
+    // _openBigImage() {
+    //     this._imageLink.src = this._link;
+    //     this._imageLink.alt = 'Изображение:' + ' ' + this._name;
+    //     this._imageCaption.textContent = this._name;
+    //     openPopup(bigImagePopup);
+    // }
 
     _addEventListeners() {
         this._trash.addEventListener('click', (evt) => {
@@ -26,7 +26,7 @@ export class Card {
             this._cardElement = null;
         });
         this._like.addEventListener('click', (evt) => evt.target.classList.toggle('element__heart_like'));
-        this._image.addEventListener('click', (evt) => this._openBigImage(this));
+        // this._image.addEventListener('click', () => this._openBigImage(this));
     }
 
     createCard() {

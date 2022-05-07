@@ -2,12 +2,12 @@ import { initialElements } from "./elements.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 import { Section } from "./Section.js";
+import { PopupWithImage } from "./PopupWithImage.js";
 
 // import Card from "../components/Card.js";
 // import FormValidator from "../components/FormValidator.js";
 // import Section from "../components/Section.js";
 // import UserInfo from "../components/UserInfo.js";
-// import PopupWithImage from "../components/PopupWithImage.js";
 // import PopupWithForm from "../components/PopupWithForm.js";
 
 // import { Section } from "./Section.js";
@@ -44,9 +44,27 @@ const formsValidationConfig = {
     errorClassVisible: 'popup__error_state_visible'
 }
 
+
+// const profilePopup = document.querySelector('#popup-change-profile');
+// const bigImagePopup = document.querySelector('#popup-image-div');
+// popupImage = document.querySelector('#popup-image-img');
+
+// popup-change-profile
+
+// add_place
+
+// popup-image-div
+
+const popupsSectors = {
+    changeProfile: '#popup-change-profile',
+    // addElement : '#add_place',
+    bigImage: '#popup-image-div',
+}
+
 const validationProfile = new FormValidator(formsValidationConfig, formProfile);
 const validationCard = new FormValidator(formsValidationConfig, formCard);
-
+// const popupWithImage = new PopupWithImage(popupsSectors.bigImage) ;
+// popupWithImage.open() 
 
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -57,8 +75,6 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', todoEscape);
 }
-
-
 
 // const userInfo = new UserInfo({
 //     name: profileName,
@@ -126,14 +142,28 @@ function handleProfileFormSubmit(evt) {
     closePopup(profilePopup);
 };
 
+const openPopupWithImage = (e) => {
+    evt.target.classList.contains('popup_opened')
+    const card = {
+        name: formAddName.value,
+        link: formAddLink.value,
+    }
+    const popupWithImage = new PopupWithImage(popupsSectors.bigImage, ); 
+    popupWithImage.open()
+}
+
 profileEditButton.addEventListener('click', openProfileForm);
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 placeAddButton.addEventListener('click', openCardPopupHandler);
 placeButtonClose.addEventListener('click', () => closePopup(placeAddPopup));
 formAddElement.addEventListener('submit', addNewElement);
-popupImage.addEventListener('click', () => openPopup(bigImagePopup));
+// popupImage.addEventListener('click', () => openPopup(bigImagePopup));
+popupImage.addEventListener('click', (e) => openPopupWithImage());
 popupImageClose.addEventListener('click', () => closePopup(bigImagePopup));
+
+
+
 
 popups.forEach((popup) => {
     popup.addEventListener('click', (evt) => {
