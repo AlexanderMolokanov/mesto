@@ -1,6 +1,9 @@
-import { Popup } from "./Popup.js";
+import {
+    Popup
+} from './Popup.js';
+
 export class PopupWithImage extends Popup {
-    
+
     static selectors = {
         imageLink: "#popup-image-img",
         imageCaption: ".popup__image-caption",

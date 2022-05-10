@@ -23,7 +23,7 @@ export class Popup {
         if (event.code = 'Escape') {
             this.close()
         }
-    }
+    } 
 }
 
 // Создайте класс Popup, который отвечает за открытие и закрытие попапа. Этот класс:

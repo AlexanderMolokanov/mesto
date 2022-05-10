@@ -1,14 +1,26 @@
-import { initialElements } from "./elements.js";
-import { Card } from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
-import { Section } from "./Section.js";
-import { PopupWithImage } from "./PopupWithImage.js";
+import {
+    initialElements
+} from "./elements.js";
+import {
+    Card
+} from "./Card.js";
+import {
+    FormValidator
+} from "./FormValidator.js";
+import {
+    Section
+} from "./Section.js";
+import {
+    PopupWithImage
+} from "./PopupWithImage.js";
+import {
+    PopupWithForm
+} from "./PopupWithForm.js";
 
 // import Card from "../components/Card.js";
 // import FormValidator from "../components/FormValidator.js";
 // import Section from "../components/Section.js";
 // import UserInfo from "../components/UserInfo.js";
-// import PopupWithForm from "../components/PopupWithForm.js";
 
 // import { Section } from "./Section.js";
 
@@ -63,8 +75,9 @@ const popupsSectors = {
 
 const validationProfile = new FormValidator(formsValidationConfig, formProfile);
 const validationCard = new FormValidator(formsValidationConfig, formCard);
-// const popupWithImage = new PopupWithImage(popupsSectors.bigImage) ;
-// popupWithImage.open() 
+
+const popupWithFormPerson = new PopupWithForm(popupsSectors.changeProfile, handleProfileFormSubmit);
+popupWithFormPerson.setEventListeners();
 
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -95,9 +108,14 @@ function closePopup(popup) {
 //     plaseElement.prepend(newCard);
 // }
 
-const createRealCard = (card) => { return new Card(card, '.template-element').createCard(); }
+const createRealCard = (card) => {
+    return new Card(card, '.template-element').createCard();
+}
 
-const elements = new Section({ items: initialElements, renderer: createRealCard }, plaseElement);
+const elements = new Section({
+    items: initialElements,
+    renderer: createRealCard
+}, plaseElement);
 elements.renderItems()
 
 function addNewElement(evt) {
@@ -107,7 +125,10 @@ function addNewElement(evt) {
         link: formAddLink.value,
     }
     // const newCardElement = createRealCard(card);
-    const newElement = new Section({ items: card, renderer: createRealCard }, plaseElement);;
+    const newElement = new Section({
+        items: card,
+        renderer: createRealCard
+    }, plaseElement);;
     // addCard(newCardElement); 
     newElement.addItem();
 
@@ -148,7 +169,7 @@ const openPopupWithImage = (e) => {
         name: formAddName.value,
         link: formAddLink.value,
     }
-    const popupWithImage = new PopupWithImage(popupsSectors.bigImage, ); 
+    const popupWithImage = new PopupWithImage(popupsSectors.bigImage, );
     popupWithImage.open()
 }
 
