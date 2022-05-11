@@ -25,3 +25,21 @@ export class UserInfo {
 // данные пользователя нужно будет подставить в форму при открытии.
 // Содержит публичный метод
 // setUserInfo, который принимает новые данные пользователя и добавляет их на страницу.
+
+
+// constructor(personInformation) {
+//     this._name = document.querySelector(personInformation.name)
+//     this._job = document.querySelector(personInformation.job)
+// }
+
+// getUserInfo() {
+//     return {
+//         name: this._name.textContent,
+//         job: this._job.textContent,
+//     };
+// }
+
+// setUserInfo(newData) {
+//     this._job.textContent = newData.job
+//     this._name.textContent = newData.name
+// }

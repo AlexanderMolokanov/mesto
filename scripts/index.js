@@ -43,10 +43,9 @@ const profileForm = document.querySelector('#profile-edit');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
 
-const formCard = document.forms.card;
 const popups = document.querySelectorAll('.popup');
 
-const formProfile = document.forms.profile;
+
 const formsValidationConfig = {
     formClass: '.popup__form',
     inputClass: '.popup__input',
@@ -55,8 +54,6 @@ const formsValidationConfig = {
     inputErrorClass: 'popup__input_underlining',
     errorClassVisible: 'popup__error_state_visible'
 }
-
-
 // const profilePopup = document.querySelector('#popup-change-profile');
 // const bigImagePopup = document.querySelector('#popup-image-div');
 // popupImage = document.querySelector('#popup-image-img');
@@ -67,17 +64,28 @@ const formsValidationConfig = {
 
 // popup-image-div
 
+const popupsSectors.formCard = document.forms.card;
+const popupsSectors.formProfile = document.forms.profile;
+
+
+
+
 const popupsSectors = {
     changeProfile: '#popup-change-profile',
-    // addElement : '#add_place',
+    addElement: '#add_place',
     bigImage: '#popup-image-div',
+    formCard: document.forms.card,
+    formProfile: document.forms.profile,
 }
 
-const validationProfile = new FormValidator(formsValidationConfig, formProfile);
-const validationCard = new FormValidator(formsValidationConfig, formCard);
+const validationProfile = new FormValidator(formsValidationConfig, popupsSectors.formProfile);
+const validationCard = new FormValidator(formsValidationConfig, popupsSectors.formCard);
 
 const popupWithFormPerson = new PopupWithForm(popupsSectors.changeProfile, handleProfileFormSubmit);
 popupWithFormPerson.setEventListeners();
+
+const popupWithFormElement = new PopupWithForm(popupsSectors.addElement, addNewElement);
+popupWithFormElement.setEventListeners();
 
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -151,7 +159,7 @@ function openProfileForm() {
 }
 
 function openCardPopupHandler() {
-    formCard.reset();
+    popupsSectors.formCard.reset();
     validationCard.resetValidation();
     openPopup(placeAddPopup);
 }
@@ -169,7 +177,7 @@ const openPopupWithImage = (e) => {
         name: formAddName.value,
         link: formAddLink.value,
     }
-    const popupWithImage = new PopupWithImage(popupsSectors.bigImage, );
+    const popupWithImage = new PopupWithImage(popupsSectors.bigImage,);
     popupWithImage.open()
 }
 
@@ -182,9 +190,6 @@ formAddElement.addEventListener('submit', addNewElement);
 // popupImage.addEventListener('click', () => openPopup(bigImagePopup));
 popupImage.addEventListener('click', (e) => openPopupWithImage());
 popupImageClose.addEventListener('click', () => closePopup(bigImagePopup));
-
-
-
 
 popups.forEach((popup) => {
     popup.addEventListener('click', (evt) => {

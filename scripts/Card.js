@@ -1,5 +1,7 @@
 import { openPopup, bigImagePopup } from "./index.js";
 export class Card {
+
+    
     constructor(card, cardTemplateSelector) {
         this._name = card.name;
         this._link = card.link;
