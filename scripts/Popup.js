@@ -9,7 +9,7 @@ export class Popup {
     }
 
     close() {
-        this._popupSelector.classList.remouve('popopup_opened')
+        this._popupSelector.classList.remouve('popopup_opened');
         document.removeEventListener('keydown', this._handleEscClose)
     }
 
@@ -32,7 +32,6 @@ export class Popup {
 // Содержит приватный метод _handleEscClose, который содержит логику закрытия попапа клавишей Esc.
 // Содержит публичный метод setEventListeners, который добавляет слушатель клика иконке закрытия попапа.
 // Модальное окно также закрывается при клике на затемнённую область вокруг формы.
-
 
 // constructor (popupSelector) {
 //     this._popupSelector = document.querySelector(popupSelector);

@@ -64,10 +64,8 @@ const formsValidationConfig = {
 
 // popup-image-div
 
-const popupsSectors.formCard = document.forms.card;
-const popupsSectors.formProfile = document.forms.profile;
-
-
+// const popupsSectors.formCard = document.forms.card;
+// const popupsSectors.formProfile = document.forms.profile;
 
 
 const popupsSectors = {
