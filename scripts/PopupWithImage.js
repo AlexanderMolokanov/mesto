@@ -7,8 +7,6 @@ export class PopupWithImage extends Popup {
     static selectors = {
         imageLink: "#popup-image-img",
         imageCaption: ".popup__image-caption",
-        // this._imageLink = document.querySelector(#popup-image-img);
-        // this._imageCaption = document.querySelector(".popup__image-caption");
     }
 
     constructor(popupSelector, card) {
