@@ -18,8 +18,8 @@ export class PopupWithForm extends Popup {
         this._inputList = Array.from(this._popupSelector.querySelectorAll(".popup__input"));
         this._formValues = {};
         // console.log(this._inputList)
-        // this._formName = this._popupSelector.querySelector(".popup__form");
-        // console.log(this._formName)
+        this._form = this._popupSelector.querySelector(".popup__form");
+        // console.log(this._form)
     }
 
     _getInputValues() {
@@ -37,8 +37,8 @@ export class PopupWithForm extends Popup {
     }
 
     close() {
-        super.close()
-        this._popupSelector.reset();
+        super.close();
+        this._form.reset();
         // this._formName = this._popupSelector.querySelector(".popup__input"));
     }
 }
