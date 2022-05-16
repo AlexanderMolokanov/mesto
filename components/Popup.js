@@ -1,4 +1,5 @@
 export class Popup {
+
     constructor(popupSelector) {
         this._popupSelector = document.querySelector(popupSelector);
     }
@@ -6,11 +7,13 @@ export class Popup {
     open() {
         this._popupSelector.classList.add('popup_opened');
         document.addEventListener('keydown', this._handleEscClose);
+        // this._popupSelector.addEventListener('click', this._handleClickBlack)
     }
 
     close() {
         this._popupSelector.classList.remove('popopup_opened');
         document.removeEventListener('keydown', this._handleEscClose);
+        // this._popupSelector.removeEventListener('click', this._handleClickBlack)
     }
 
     setEventListeners() {
@@ -19,8 +22,14 @@ export class Popup {
         })
     }
 
+    // _handleClickBlack(event) {
+    //     if ((event.code = 'Escape') && (evt.target.classList.contains('popup_opened'))) {
+    //         this.close()
+    //     }
+    // }
+
     _handleEscClose(event) {
-        if (event.code = 'Escape') {
+        if (event.code === 'Escape') {
             this.close()
         }
     }

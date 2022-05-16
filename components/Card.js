@@ -1,4 +1,3 @@
-import { openPopup, bigImagePopup } from "./index.js";
 export class Card {
     constructor(card, cardTemplateSelector) {
         this._name = card.name;
@@ -13,11 +12,13 @@ export class Card {
     }
 
     _addEventListeners() {
-        this._trash.addEventListener('click', (evt) => {
+        this._trash.addEventListener('click', () => {
             this._cardElement.remove()
             this._cardElement = null;
         });
         this._like.addEventListener('click', (evt) => evt.target.classList.toggle('element__heart_like'));
+        this._image._addEventListeners('click', )
+
     }
 
     createCard() {
