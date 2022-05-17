@@ -51,9 +51,26 @@ popupWithFormPerson.setEventListeners();
 const popupWithFormElement = new PopupWithForm(popupsSectors.addElement, addNewElement);
 popupWithFormElement.setEventListeners();
 
+// const popupWithElement = new PopupWithForm(popupsSectors.bigImage, addNewElement);
+// popupWithElement.setEventListeners();
+
 export function openPopup(popup) {
     popup.classList.add('popup_opened');
     // document.addEventListener('keydown', todoEscape);
+}
+
+
+
+
+const openPopupWithImage = () => {
+    // evt.target.classList.contains('popup_opened')
+    const card = {
+        name: formAddName.value,
+        link: formAddLink.value,
+        clicker: () => popupWithElement.open(),
+    }
+    const popupWithImage = new PopupWithImage(popupsSectors.bigImage, card);
+    popupWithImage.open()
 }
 
 function closePopup(popup) {
@@ -67,7 +84,7 @@ const createRealCard = (card) => {
 
 const elements = new Section({
     items: initialElements,
-    renderer: createRealCard
+    renderer: createRealCard,
 }, plaseElement);
 elements.renderItems()
 
@@ -76,21 +93,23 @@ function addNewElement(evt) {
     const card = {
         name: formAddName.value,
         link: formAddLink.value,
+        clicker: () => popupWithElement.open(),
     }
     const newElement = new Section({
         items: card,
-        renderer: createRealCard
+        renderer: createRealCard,
     }, plaseElement);
+    
     newElement.addItem();
     closePopup(placeAddPopup);
 };
 
-function todoEscape(event) {
-    if (event.code === 'Escape') {
-        const openedPopup = document.querySelector(".popup_opened");
-        closePopup(openedPopup);
-    }
-}
+// function todoEscape(event) {
+//     if (event.code === 'Escape') {
+//         const openedPopup = document.querySelector(".popup_opened");
+//         closePopup(openedPopup);
+//     }
+// }
 
 const userInfo = new UserInfo(profileDataSelectors);
 
@@ -119,15 +138,6 @@ function handleProfileFormSubmit(evt) {
     // closePopup(profilePopup);
 };
 
-const openPopupWithImage = () => {
-    // evt.target.classList.contains('popup_opened')
-    const card = {
-        name: formAddName.value,
-        link: formAddLink.value,
-    }
-    const popupWithImage = new PopupWithImage(popupsSectors.bigImage, card);
-    popupWithImage.open()
-}
 
 profileEditButton.addEventListener('click', openProfileForm);
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));

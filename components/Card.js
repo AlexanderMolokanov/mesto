@@ -2,6 +2,7 @@ export class Card {
     constructor(card, cardTemplateSelector) {
         this._name = card.name;
         this._link = card.link;
+        this._clicker = card.clicker;
         this._cardsTemplate = document.querySelector(cardTemplateSelector).content;
         this._cardElement = this._cardsTemplate.querySelector('.element').cloneNode(true);
         this._like = this._cardElement.querySelector('.element__heart');
@@ -9,16 +10,16 @@ export class Card {
         this._trash = this._cardElement.querySelector('.element__delete');
         this._imageLink = document.querySelector("#popup-image-img");
         this._imageCaption = document.querySelector(".popup__image-caption");
+        // console.log(this._clicker)
     }
 
     _addEventListeners() {
         this._trash.addEventListener('click', () => {
             this._cardElement.remove()
-            this._cardElement = null;
+            this._cardElement = null; 
         });
         this._like.addEventListener('click', (evt) => evt.target.classList.toggle('element__heart_like'));
-        this._image._addEventListeners('click', )
-
+        this._image.addEventListener('click', () => this._clicker());
     }
 
     createCard() {
@@ -29,3 +30,11 @@ export class Card {
         return this._cardElement;
     }
 }
+
+// Создайте класс Card, который создаёт карточку с текстом и ссылкой на изображение:
+// принимает в конструктор её данные и селектор её template-элемента;
+// содержит приватные методы, которые работают с разметкой, устанавливают
+//  слушателей событий;
+// содержит приватные методы для каждого обработчика;
+// содержит один публичный метод, который возвращает полностью работоспособный
+//  и наполненный данными элемент карточки.
