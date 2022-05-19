@@ -1,0 +1,28 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "Plases saver",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderMolokanov/mesto.git"
+  },
+  "keywords": [
+    "plase",
+    "add",
+    "travel"
+  ],
+  "author": "Alexander Molokanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexanderMolokanov/mesto/issues"
+  },
+  "homepage": "https://github.com/AlexanderMolokanov/mesto#readme",
+  "devDependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
