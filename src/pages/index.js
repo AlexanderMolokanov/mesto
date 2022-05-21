@@ -5,6 +5,15 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
+import './index.css';
+// import logoImage from './images/header_logo.svg';
+// import profileImage from '/images/profile__jac-if-kusto.jp';
+
+
+// const somePic = [
+//     { name: 'Michael Jordan', image: logoImage },
+//     { name: 'Lebron James', link: profileImage }, 
+//   ]; 
 
 const profileEditButton = document.querySelector('.profile__edit');
 const placeAddButton = document.querySelector('.profile__add');
