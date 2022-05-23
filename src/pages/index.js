@@ -6,14 +6,6 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import './index.css';
-// import logoImage from './images/header_logo.svg';
-// import profileImage from '/images/profile__jac-if-kusto.jp';
-
-
-// const somePic = [
-//     { name: 'Michael Jordan', image: logoImage },
-//     { name: 'Lebron James', link: profileImage }, 
-//   ]; 
 
 const profileEditButton = document.querySelector('.profile__edit');
 const placeAddButton = document.querySelector('.profile__add');
@@ -67,25 +59,26 @@ const elements = new Section({
 }, plaseElement);
 elements.renderItems()
 
-function addNewElement(evt) {
+function addNewElement(evt, newData) {
     evt.preventDefault();
-    const card = {
-        name: formAddName.value,
-        link: formAddLink.value,
-    }
+    // const card = {
+    //     name: formAddName.value,
+    //     link: formAddLink.value,
+    // }
     const newElement = new Section({
-        items: card,
+        items: newData,
         renderer: createRealCard,
     }, plaseElement);
     newElement.addItem();
     popupWithFormElement.close();
 };
 
-function handleProfileFormSubmit(evt) {
+function handleProfileFormSubmit(evt, newData) {
     evt.preventDefault();
-    const newData = {};
-    newData.name = profileEditInput.value;
-    newData.job = profileEditJob.value;
+    // const newData = {};
+    // newData.name = profileEditInput.value;
+    // newData.job = profileEditJob.value;
+    console.log(newData)
     userInfo.setUserInfo(newData)
     popupWithFormPerson.close()
 };
