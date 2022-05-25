@@ -20,6 +20,8 @@ const profileDataSelectors = {
     job: '.profile__job',
 }
 
+const plase = {plaseElement:'.elements'};
+
 const formsValidationConfig = {
     formClass: '.popup__form',
     inputClass: '.popup__input',
@@ -42,11 +44,11 @@ const validationCard = new FormValidator(formsValidationConfig, popupsSectors.fo
 const popupWithFormPerson = new PopupWithForm(popupsSectors.changeProfile, handleProfileFormSubmit);
 const popupWithFormElement = new PopupWithForm(popupsSectors.addElement, addNewElement);
 const userInfo = new UserInfo(profileDataSelectors);
+const popupWithImage = new PopupWithImage(popupsSectors.bigImage);
+popupWithImage.setEventListeners()
 
 const openPopupWithImage = (card) => {
-    const popupWithImage = new PopupWithImage(popupsSectors.bigImage, card);
-    popupWithImage.setEventListeners()
-    popupWithImage.open()
+    popupWithImage.open(card)
 }
 
 const createRealCard = (card) => {
@@ -56,25 +58,27 @@ const createRealCard = (card) => {
 const elements = new Section({
     items: initialElements,
     renderer: createRealCard,
-}, plaseElement);
+}, plase.plaseElement);
 elements.renderItems()
 
 function addNewElement(evt, newData) {
     evt.preventDefault();
-    // const card = {
-    //     name: formAddName.value,
-    //     link: formAddLink.value,
-    // }
+    console.log(newData)
+    const card = {
+        name: newData.value,
+        link: newData.value,
+    }
     const newElement = new Section({
-        items: newData,
+        items: card,
         renderer: createRealCard,
-    }, plaseElement);
+    }, plase.plaseElement);
     newElement.addItem();
     popupWithFormElement.close();
 };
 
 function handleProfileFormSubmit(evt, newData) {
     evt.preventDefault();
+    console.log(newData)
     // const newData = {};
     // newData.name = profileEditInput.value;
     // newData.job = profileEditJob.value;

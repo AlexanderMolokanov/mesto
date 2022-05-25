@@ -7,15 +7,15 @@ export class PopupWithImage extends Popup {
         imageCaption: ".popup__image-caption",
     }
 
-    constructor(popupSelector, card) {
+    constructor(popupSelector) {
         super(popupSelector)
         this._imageLink = document.querySelector(PopupWithImage.selectors.imageLink)
         this._imageCaption = document.querySelector(PopupWithImage.selectors.imageCaption)
+    }
+    
+    open(card) {
         this._name = card.name;
         this._link = card.link;
-    }
-
-    open() {
         super.open();
         this._imageLink.src = this._link;
         this._imageLink.alt = 'Изображение:' + ' ' + this._name;
