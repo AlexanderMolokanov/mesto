@@ -24,3 +24,26 @@ export const initialElements = [
         link: "https://drive.google.com/uc?export=download&id=1JNyODG1cbpYjYBcVNd5gXmZYXYnn8YqI",
     },
 ];
+
+export const profileDataSelectors = {
+    name: '.profile__name',
+    job: '.profile__job',
+}
+
+export const formsValidationConfig = {
+    formClass: '.popup__form',
+    inputClass: '.popup__input',
+    submitButtonSelector: '.popup__button-save',
+    disabledButtonClass: 'popup__button-save_disabled',
+    inputErrorClass: 'popup__input_underlining',
+    errorClassVisible: 'popup__error_state_visible'
+}
+
+export const popupsSectors = {
+    changeProfile: '#popup-change-profile',
+    addElement: '#add_place',
+    bigImage: '#popup-image-div',
+    formCard: document.forms.card,
+    formProfile: document.forms.profile,
+}
+
