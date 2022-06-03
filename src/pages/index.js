@@ -11,6 +11,7 @@ const profileEditButton = document.querySelector('.profile__edit');
 const placeAddButton = document.querySelector('.profile__add');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
+const elementsSelector = document.querySelector('.elements')
 
 const validationProfile = new FormValidator(formsValidationConfig, popupsSectors.formProfile);
 const validationCard = new FormValidator(formsValidationConfig, popupsSectors.formCard);
@@ -25,7 +26,8 @@ const openPopupWithImage = (card) => {
 }
 
 const createRealCard = (card) => {
-    return new Card(card, '.template-element', openPopupWithImage).createCard();
+    const newCard = new Card(card, '.template-element', openPopupWithImage).createCard()
+    elementsSelector.prepend(newCard)
 }
 
 const elements = new Section({
@@ -42,7 +44,6 @@ function addNewElement(evt, newData) {
         link: newData.placeLink,
     }
     const newElement = createRealCard(card)
-    elements.addItem(newElement);
     popupWithFormElement.close();
 };
 
