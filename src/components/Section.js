@@ -12,7 +12,6 @@ export class Section {
     renderItems() {
         this._items.forEach((element) => {
             const item = this._renderer(element, this._containerSelector);
-            // this.addItem(item)
             return item
         }); 
     }

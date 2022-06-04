@@ -11,7 +11,6 @@ const profileEditButton = document.querySelector('.profile__edit');
 const placeAddButton = document.querySelector('.profile__add');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
-const elementsSelector = document.querySelector('.elements')
 
 const validationProfile = new FormValidator(formsValidationConfig, popupsSectors.formProfile);
 const validationCard = new FormValidator(formsValidationConfig, popupsSectors.formCard);
@@ -19,7 +18,6 @@ const popupWithFormPerson = new PopupWithForm(popupsSectors.changeProfile, handl
 const popupWithFormElement = new PopupWithForm(popupsSectors.addElement, addNewElement);
 const userInfo = new UserInfo(profileDataSelectors);
 const popupWithImage = new PopupWithImage(popupsSectors.bigImage);
-popupWithImage.setEventListeners()
 
 const openPopupWithImage = (card) => {
     popupWithImage.open(card)
@@ -30,7 +28,6 @@ const createRealCard = (card) => {
 }
 
 const addRealCard = (card) => {
-    // elementsSelector.prepend(card)
     elements.addItem(card);
 }
 
@@ -38,9 +35,6 @@ const elements = new Section({
     items: initialElements,
     renderer: (card) => { addRealCard(createRealCard(card)) }
 }, '.elements');
-
-elements.renderItems()
-
 
 function addNewElement(evt, newData) {
     evt.preventDefault();
@@ -56,7 +50,6 @@ function addNewElement(evt, newData) {
 
 function handleProfileFormSubmit(evt, newData) {
     evt.preventDefault();
-    // console.log(newData)
     const userData = {
         job: newData.jobInput,
         name: newData.nameInput,
@@ -85,3 +78,5 @@ validationProfile.enableValidation();
 validationCard.enableValidation();
 popupWithFormPerson.setEventListeners();
 popupWithFormElement.setEventListeners();
+elements.renderItems()
+popupWithImage.setEventListeners()
