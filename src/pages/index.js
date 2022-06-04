@@ -26,15 +26,21 @@ const openPopupWithImage = (card) => {
 }
 
 const createRealCard = (card) => {
-    const newCard = new Card(card, '.template-element', openPopupWithImage).createCard()
-    elementsSelector.prepend(newCard)
+    return new Card(card, '.template-element', openPopupWithImage).createCard()
+}
+
+const addRealCard = (card) => {
+    // elementsSelector.prepend(card)
+    elements.addItem(card);
 }
 
 const elements = new Section({
     items: initialElements,
-    renderer: createRealCard,
+    renderer: (card) => { addRealCard(createRealCard(card)) }
 }, '.elements');
+
 elements.renderItems()
+
 
 function addNewElement(evt, newData) {
     evt.preventDefault();
@@ -44,12 +50,13 @@ function addNewElement(evt, newData) {
         link: newData.placeLink,
     }
     const newElement = createRealCard(card)
+    elements.addItem(newElement);
     popupWithFormElement.close();
 };
 
 function handleProfileFormSubmit(evt, newData) {
     evt.preventDefault();
-    console.log(newData)
+    // console.log(newData)
     const userData = {
         job: newData.jobInput,
         name: newData.nameInput,
