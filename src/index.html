@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
     <title>Места России</title>
 </head>
 
@@ -17,8 +16,8 @@
 
         <main class="content">
             <section class="profile">
-                <img class="profile__image" src="<%=require('./images/profile__jac-if-kusto.jpg')%>" alt="Изображение профиля">
-                <!-- <img src="<%('./images/logo.png')%>" alt="Логотип">  -->
+                <img class="profile__image" src="<%=require('./images/profile__jac-if-kusto.jpg')%>"
+                    alt="Изображение профиля">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button class="profile__edit" type="button"></button>
@@ -39,28 +38,18 @@
             <div class="popup__container">
                 <button class="popup__button-close" type="button"></button>
                 <h2 class="popup__label">Редактировать профиль</h2>
-                <form class="popup__form" 
-                id="profile-edit" 
-                name="profile" method="get" novalidate>
+                <form class="popup__form" id="profile-edit" name="profile" method="get" novalidate>
                     <div class="popup__input-wrapper">
-                        <input type="text" 
-                        required minlength="2" 
-                        maxlength="40" 
-                        class="popup__input" 
-                        id="name-input"
-                        name="nameInput" 
-                        placeholder="Имя">
+                        <input type="text" required minlength="2" maxlength="40" class="popup__input" id="name-input"
+                            name="nameInput" placeholder="Имя">
                         <span id="name-input-error" class="popup__error"></span>
                     </div>
                     <div class="popup__input-wrapper">
-                        <input required minlength="2" 
-                        maxlength="200" 
-                        class="popup__input" 
-                        id="job-input"
-                        name="jobInput" type="text" placeholder="Род деятельности">
+                        <input required minlength="2" maxlength="200" class="popup__input" id="job-input"
+                            name="jobInput" type="text" placeholder="Род деятельности">
                         <span id="job-input-error" class="popup__error"></span>
                     </div>
-                    <button class="popup__button-save" id="button-profile-edit"  type="submit">Сохранить</button>
+                    <button class="popup__button-save" id="button-profile-edit" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
@@ -71,18 +60,13 @@
                 <h2 class="popup__label">Новое место</h2>
                 <form class="popup__form" id="place-edit" name="card" method="get" novalidate>
                     <div class="popup__input-wrapper">
-                        <input required minlength="2" maxlength="200" 
-                        class="popup__input" 
-                        id="place-name-input"
-                        name="placeName" type="text" placeholder="Название"> 
+                        <input required minlength="2" maxlength="200" class="popup__input" id="place-name-input"
+                            name="placeName" type="text" placeholder="Название">
                         <span id="place-name-input-error" class="popup__error"></span>
                     </div>
                     <div class="popup__input-wrapper">
-                        <input type="url" required 
-                        class="popup__input" 
-                        id="place-link-input" 
-                        name="placeLink"
-                        placeholder="Ссылка на картинку">
+                        <input type="url" required class="popup__input" id="place-link-input" name="placeLink"
+                            placeholder="Ссылка на картинку">
                         <span id="place-link-input-error" class="popup__error"></span>
                     </div>
                     <button class="popup__button-save" type="submit">Сохранить</button>
@@ -105,7 +89,11 @@
             <img class="element__image" id="element-image" alt="Изображение природы">
             <div class="element__data">
                 <h2 class="element__title"></h2>
-                <button class="element__heart" type="button"></button>
+                <div class="element__heart-datas">
+                    <button class="element__heart" type="button"></button>
+                    <div class="element__heart-number"></div>
+                </div>
+
             </div>
             <button class="element__delete" type="button"></button>
         </article>

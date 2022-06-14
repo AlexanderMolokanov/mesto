@@ -1,7 +1,7 @@
 .element__heart {
     padding: 0;
     margin: 0;
-    background-image: url(../../../images/heart.svg);
+    background-image: url(../../../../images/heart.svg);
     background-size: 100%;
     background-position: center;
     cursor: pointer;
