@@ -16,8 +16,11 @@
 
         <main class="content">
             <section class="profile">
-                <img class="profile__image" src="<%=require('./images/profile__jac-if-kusto.jpg')%>"
-                    alt="Изображение профиля">
+                <div class="profile__image-wraper">
+                    <img class="profile__image" src="<%=require('./images/profile__jac-if-kusto.jpg')%>"
+                        alt="Изображение профиля">
+                    <button class="profile__black-box" type="button"></button>
+                </div>
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button class="profile__edit" type="button"></button>
@@ -69,7 +72,7 @@
                             placeholder="Ссылка на картинку">
                         <span id="place-link-input-error" class="popup__error"></span>
                     </div>
-                    <button class="popup__button-save" type="submit">Сохранить</button>
+                    <button class="popup__button-save" type="submit">Создать </button>
 
                 </form>
             </div>
@@ -82,6 +85,32 @@
                 <button class="popup__button-close" type="button" id="popup__image-close-button"></button>
             </figure>
         </div>
+
+        <div class="popup" id="popup-ask-sure">
+            <div class="popup__container">
+                <button class="popup__button-close" type="button" id="place-close-button" name="place-close"></button>
+                <h2 class="popup__label">Вы уверены?</h2>
+                <form class="popup__form" id="ask-sure" name="askSure" method="get" novalidate>
+                    <button class="popup__button-save popup__button-save_no-margin" type="submit">Да</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup" id="change-profile-image">
+            <div class="popup__container">
+                <button class="popup__button-close" type="button" id="place-close-button" name="place-close"></button>
+                <h2 class="popup__label">Обновить аватар</h2>
+                <form class="popup__form" id="ask-sure" name="askSure" method="get" novalidate>
+                    <div class="popup__input-wrapper">
+                        <input type="url" required class="popup__input" id="place-link-input" name="placeLink"
+                            placeholder="Ссылка на новое фото">
+                        <span id="place-link-input-error" class="popup__error"></span>
+                    </div>
+                    <button class="popup__button-save " type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
     </div>
 
     <template class="template-element" id="element-template">
@@ -91,7 +120,7 @@
                 <h2 class="element__title"></h2>
                 <div class="element__heart-datas">
                     <button class="element__heart" type="button"></button>
-                    <div class="element__heart-number"></div>
+                    <div class="element__heart-number">5</div>
                 </div>
 
             </div>
