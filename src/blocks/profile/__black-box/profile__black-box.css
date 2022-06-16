@@ -14,10 +14,10 @@
     cursor: pointer;
     display: block;
     background-repeat: no-repeat;
-    /* visibility: none; */
-    /* opacity: 1; */
     z-index: 1;
     border-radius: 100%;
+    transition      :  opacity .5s ;
+    transition-delay: 0s;
 }
 
 .profile__black-box:hover {

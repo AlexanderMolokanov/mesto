@@ -12,6 +12,16 @@ const placeAddButton = document.querySelector('.profile__add');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
 
+// const api = new Api({
+//     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-42',
+//     headers: {
+//       authorization: 'f94fe150-fc6f-49bf-839d-cc1279afa58f',
+//       'Content-Type': 'application/json'
+//     }
+//   }); 
+
+//   console.log(api.getInitialCards())
+  
 const validationProfile = new FormValidator(formsValidationConfig, popupsSectors.formProfile);
 const validationCard = new FormValidator(formsValidationConfig, popupsSectors.formCard);
 const popupWithFormPerson = new PopupWithForm(popupsSectors.changeProfile, handleProfileFormSubmit);
