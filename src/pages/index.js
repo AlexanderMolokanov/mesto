@@ -6,20 +6,20 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import './index.css';
+import { ApiReguest } from "../components/ApiReguest.js";
+import { Api } from "../components/Api.js";
 
 const profileEditButton = document.querySelector('.profile__edit');
 const placeAddButton = document.querySelector('.profile__add');
 const profileEditInput = document.querySelector('#name-input');
 const profileEditJob = document.querySelector('#job-input');
 
-// const api = new Api({
-//     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-42',
-//     headers: {
-//       authorization: 'f94fe150-fc6f-49bf-839d-cc1279afa58f',
-//       'Content-Type': 'application/json'
-//     }
-//   }); 
-//   console.log(api.getInitialCards())
+
+const reguest = new ApiReguest('https://nomoreparties.co/v1/cohort-42/', {
+    authorization: 'f94fe150-fc6f-49bf-839d-cc1279afa58f',
+    'Content-Type': 'application/json',
+    // 'Accept': 'application/json: charset=utf-8'
+})
 
 const validationProfile = new FormValidator(formsValidationConfig, popupsSectors.formProfile);
 const validationCard = new FormValidator(formsValidationConfig, popupsSectors.formCard);
@@ -27,6 +27,21 @@ const popupWithFormPerson = new PopupWithForm(popupsSectors.changeProfile, handl
 const popupWithFormElement = new PopupWithForm(popupsSectors.addElement, addNewElement);
 const userInfo = new UserInfo(profileDataSelectors);
 const popupWithImage = new PopupWithImage(popupsSectors.bigImage);
+
+const api = new Api(reguest);
+
+const userData = api.getUserInfo().then((data) => { return data })
+
+console.log(userData)
+
+const setAvatarData = () => {
+    const userData = {
+        job: userData,
+        name: userData,
+    }
+    userInfo.setUserInfo(userData)
+}
+setAvatarData()
 
 const openPopupWithImage = (card) => {
     popupWithImage.open(card)
@@ -47,7 +62,7 @@ const elements = new Section({
 
 function addNewElement(evt, newData) {
     evt.preventDefault();
-    console.log(newData)
+    // console.log(newData)
     const card = {
         name: newData.placeName,
         link: newData.placeLink,
