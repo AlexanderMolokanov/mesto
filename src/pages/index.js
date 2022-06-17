@@ -19,9 +19,8 @@ const profileEditJob = document.querySelector('#job-input');
 //       'Content-Type': 'application/json'
 //     }
 //   }); 
-
 //   console.log(api.getInitialCards())
-  
+
 const validationProfile = new FormValidator(formsValidationConfig, popupsSectors.formProfile);
 const validationCard = new FormValidator(formsValidationConfig, popupsSectors.formCard);
 const popupWithFormPerson = new PopupWithForm(popupsSectors.changeProfile, handleProfileFormSubmit);
