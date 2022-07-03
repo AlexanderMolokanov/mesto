@@ -3,11 +3,10 @@ export class ApiReguest {
         this._url = url;
         this._headers = headers;
     };
-  
-    _renderPromise(promise) { 
-        return promise
-            .then((res) => {
-               if (res.ok) {
+
+    _renderPromise(promise) {
+        return promise.then((res) => {
+                if (res.ok) {
                     return res.json();
                 }
                 return Promise.reject(`Ошибка: ${res.status}`);
@@ -15,8 +14,8 @@ export class ApiReguest {
             .then((obj) => {
                 return obj;
             });
-    };
-  
+    };  
+
     get(type) {
         const promise = fetch(`${this._url}/${type}`, {
             method: 'GET',
@@ -24,7 +23,7 @@ export class ApiReguest {
         });
         return this._renderPromise(promise);
     };
-  
+
     post(type, item) {
         const promise = fetch(`${this._url}/${type}`, {
             method: 'POST',
@@ -37,7 +36,7 @@ export class ApiReguest {
         });
         return this._renderPromise(promise);
     };
-  
+
     patch(type, keys) {
         const promise = fetch(`${this._url}/${type}`, {
             method: 'PATCH',
@@ -46,7 +45,7 @@ export class ApiReguest {
         });
         return this._renderPromise(promise);
     };
-  
+
     delete(type) {
         const promise = fetch(`${this._url}/${type}`, {
             method: 'DELETE',
@@ -54,7 +53,7 @@ export class ApiReguest {
         });
         return this._renderPromise(promise);
     };
-  
+
     put(type) {
         const promise = fetch(`${this._url}/${type}`, {
             method: 'PUT',
@@ -62,5 +61,4 @@ export class ApiReguest {
         });
         return this._renderPromise(promise);
     };
-  };
-  
+};

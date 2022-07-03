@@ -28,11 +28,12 @@ const popupWithFormElement = new PopupWithForm(popupsSectors.addElement, addNewE
 const userInfo = new UserInfo(profileDataSelectors);
 const popupWithImage = new PopupWithImage(popupsSectors.bigImage);
 
-const api = new Api(reguest);
+// const api = new Api(SpeechRecognitionResultList);
 
-const userData = api.getUserInfo().then((data) => { return data })
+// const userData = api.getUserInfo().then((data) => { return data })
+// .then((result) => console.log(result))
 
-console.log(userData)
+// console.log(userData)
 
 const setAvatarData = () => {
     const userData = {
