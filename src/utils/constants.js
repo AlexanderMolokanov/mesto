@@ -28,6 +28,7 @@ export const initialElements = [
 export const profileDataSelectors = {
     name: '.profile__name',
     job: '.profile__job',
+    avatar: '.profile__image',
 }
 
 export const formsValidationConfig = {
@@ -36,8 +37,17 @@ export const formsValidationConfig = {
     submitButtonSelector: '.popup__button-save',
     disabledButtonClass: 'popup__button-save_disabled',
     inputErrorClass: 'popup__input_underlining',
-    errorClassVisible: 'popup__error_state_visible'
+    errorClassVisible: 'popup__error_state_visible',
 }
+
+// export const validationOptionsAvatar = {
+//     formClass: '.popup__form',
+//     inputClass: '.form__item_input_link-avatar',
+//     submitButtonSelector: '.submit-btn',
+//     inactiveButtonClass: 'submit-btn_disabled',
+//     inputErrorClass: 'form__item_type_error',
+//     errorClassVisible: 'form__input-error_active'
+// };
 
 export const popupsSectors = {
     changeProfile: '#popup-change-profile',
@@ -45,5 +55,7 @@ export const popupsSectors = {
     bigImage: '#popup-image-div',
     formCard: document.forms.card,
     formProfile: document.forms.profile,
+    askSure: '#popup-ask-sure',
+    saveNewAvatar: document.forms.newImage
 }
 

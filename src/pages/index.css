@@ -24,6 +24,7 @@
 @import url(../blocks/element/__heart-datas/__heart-number/element__heart-number.css);
 @import url(../blocks/element/__heart-datas/__heart/element__heart.css);
 @import url(../blocks/element/__heart-datas/__heart/_like/element__heart_like.css);
+@import url(../blocks/element/__heart-datas/__heart-number/_disabled/element__heart-number_disabled.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__button-close/popup__button-close.css);
 @import url(../blocks/popup/__button-save/popup__button-save.css);

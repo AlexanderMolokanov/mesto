@@ -12,7 +12,7 @@ export class PopupWithImage extends Popup {
         this._imageLink = document.querySelector(PopupWithImage.selectors.imageLink)
         this._imageCaption = document.querySelector(PopupWithImage.selectors.imageCaption)
     }
-    
+
     open(card) {
         this._name = card.name;
         this._link = card.link;
