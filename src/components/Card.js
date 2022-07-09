@@ -1,6 +1,6 @@
 export class Card {
 
-    constructor(card, cardTemplateSelector, clicker, userId, openDelitePopup, setLike, removeLike) {
+    constructor(card, cardTemplate, clicker, userId, openDelitePopup, setLike, removeLike) {
         this._setLike = setLike;
         this._removeLike = removeLike;
         this._clicker = clicker;
@@ -11,7 +11,7 @@ export class Card {
         this._ownerId = card.owner._id;
         this._userId = userId;
         this.cardId = card._id;
-        this._cardsTemplate = document.querySelector(cardTemplateSelector).content;
+        this._cardsTemplate = document.querySelector(cardTemplate).content;
         this._cardElement = this._cardsTemplate.querySelector('.element').cloneNode(true);
         this._like = this._cardElement.querySelector('.element__heart');
         this._image = this._cardElement.querySelector('.element__image');
@@ -25,6 +25,7 @@ export class Card {
 
     _handleLikesChanged(likes) {
         this._likes = likes;
+        console.log(likes)
         this._renderLikeCounter()
         this._renderLikeButton()
     }
@@ -66,21 +67,13 @@ export class Card {
             return a._id
         })
         ).some(elem => elem === userId)
-    }
+    } 
 
     toggleLike() {
         if (this._checkId(this._userId)) {
-            this._removeLike(this.cardId).then((data) => {
-                this._handleLikesChanged(data.likes)
-            }).catch((err) => {
-                console.log(err);
-            });
+            this._removeLike(this.cardId, this._handleLikesChanged)
         } else {
-            this._setLike(this.cardId).then((data) => {
-                this._handleLikesChanged(data.likes)
-            }).catch((err) => {
-                console.log(err);
-            });
+            this._setLike(this.cardId, this._handleLikesChanged)
         }
     };
 

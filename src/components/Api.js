@@ -31,7 +31,6 @@ export class Api {
   };
 
   setAvatar(avatarData) {
-    console.log(avatarData.placeLink)
     return this._options.patch('users/me/avatar', {
       avatar: avatarData.placeLink
     });

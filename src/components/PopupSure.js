@@ -2,36 +2,26 @@ import { Popup } from './Popup.js';
 
 export class PopupSure extends Popup {
 
-    static selectors = {
-        formAskSure: ".hide-input",
-    } 
-    
-    constructor(popupSelector, submitHandler) {
-        super(popupSelector)
+    constructor(popup, submitHandler) {
+        super(popup)
         this._submitHandler = submitHandler;
-        this._hideInput = document.querySelector(PopupSure.selectors.formAskSure);
-        this.card = null;
-    }
-
-    _getInputValues() {
-        return this._hideInput.value;
+        this._card = null;
     }
 
     setEventListeners() {
         super.setEventListeners();
-        this._popupSelector.addEventListener('submit', (e) => {
+        this._popup.addEventListener('submit', (e) => {
             e.preventDefault();
-            this._submitHandler(this._getInputValues());
+            this._submitHandler(this._card.cardId);
         })
         
     }
 
     setCard(card) {
-        this.card = card;
-        this.setEventListeners()
+        this._card = card;
     }
 
     getCard() {
-        return this.card;
+        return this._card;
     }
 }
