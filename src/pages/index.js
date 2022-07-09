@@ -136,7 +136,7 @@ function openCardPopupHandler() {
 
 function setLike(cardId, renderLikes) {
     return api.useLike(cardId).then((data) => {
-        console.log(renderLikes);
+        // console.log(renderLikes);
         renderLikes(data.likes)
     }).catch((err) => {
         console.log(err);
@@ -145,7 +145,7 @@ function setLike(cardId, renderLikes) {
 
 function removeLike(cardId, renderLikes) {
     return api.removeLike(cardId).then((data) => {
-        console.log(renderLikes);
+        // console.log(renderLikes);
         renderLikes(data.likes)
     }).catch((err) => {
         console.log(err);

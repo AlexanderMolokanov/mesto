@@ -25,7 +25,6 @@ export class Card {
 
     _handleLikesChanged(likes) {
         this._likes = likes;
-        console.log(likes)
         this._renderLikeCounter()
         this._renderLikeButton()
     }
@@ -67,13 +66,13 @@ export class Card {
             return a._id
         })
         ).some(elem => elem === userId)
-    } 
+    }
 
     toggleLike() {
         if (this._checkId(this._userId)) {
-            this._removeLike(this.cardId, this._handleLikesChanged)
+            this._removeLike(this.cardId, (likes) => { this._handleLikesChanged(likes) })
         } else {
-            this._setLike(this.cardId, this._handleLikesChanged)
+            this._setLike(this.cardId, (likes) => { this._handleLikesChanged(likes) })
         }
     };
 
