@@ -16,7 +16,7 @@
 ## Демо
 
 [Страница на GH Pages](https://alexandermolokanov.github.io/mesto/)
+[Страница на сервере - требуются ключи доступа](https://mesto.nomoreparties.co/)
 
-## Планы по доработке
 
-- Разработка системы сохранения изменений
+

@@ -69,8 +69,7 @@ const elements = new Section({
     renderer: (card) => { addRealCard(createRealCard(card)) }
 }, '.elements');
 
-function addNewElement(evt, newData) {
-    evt.preventDefault();
+function addNewElement(newData) {
     saveButton.innerText = 'Создать...'
     const card = {
         name: newData.placeName,
