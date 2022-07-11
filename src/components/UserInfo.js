@@ -1,15 +1,10 @@
 export class UserInfo {
 
-    static selectors = {
-        blackBox: '.profile__black-box'
-    }
-
     constructor(personInformation) {
         this._name = document.querySelector(personInformation.name)
         this._job = document.querySelector(personInformation.job)
         this._avatar = document.querySelector(personInformation.avatar);
         this._id = '';
-        this._blackBox = document.querySelector(UserInfo.selectors.blackBox)
     }
     
     initUserLoad(dataServer) {

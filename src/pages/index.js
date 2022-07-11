@@ -41,9 +41,8 @@ const openPopupWithImage = (card) => {
     popupWithImage.open(card)
 }
 
-function changeAvatar(avatarlink) {
-    avatarForm.buttonText('Создание...')
-    popupAskSure
+function changeAvatar(avatarlink) { 
+    avatarForm.buttonText('Сохрание...')
     api.setAvatar(avatarlink).then((userData) => {
         userInfo.initUserLoad(userData)
         avatarForm.close()
@@ -136,7 +135,6 @@ function openCardPopupHandler() {
 
 function setLike(cardId, renderLikes) {
     return api.useLike(cardId).then((data) => {
-        // console.log(renderLikes);
         renderLikes(data.likes)
     }).catch((err) => {
         console.log(err);
@@ -145,7 +143,6 @@ function setLike(cardId, renderLikes) {
 
 function removeLike(cardId, renderLikes) {
     return api.removeLike(cardId).then((data) => {
-        // console.log(renderLikes);
         renderLikes(data.likes)
     }).catch((err) => {
         console.log(err);

@@ -11,9 +11,9 @@ export class PopupWithForm extends Popup {
         this._button = this._popup.querySelector('.popup__button-save')
     }
 
-    // buttonText(text) {
-    //     this._button.textContent = text
-    // }
+    buttonText(text) {
+        this._button.textContent = text
+    }
 
     _getInputValues() {
         this._inputList.forEach((input) => {

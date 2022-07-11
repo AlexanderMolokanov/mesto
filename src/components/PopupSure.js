@@ -6,15 +6,19 @@ export class PopupSure extends Popup {
         super(popup)
         this._submitHandler = submitHandler;
         this._card = null;
+        this._button = this._popup.querySelector('.popup__button-save')
+    }
+
+    buttonText(text) {
+        this._button.textContent = text
     }
 
     setEventListeners() {
         super.setEventListeners();
         this._popup.addEventListener('submit', (e) => {
             e.preventDefault();
-            this._submitHandler(this._card.cardId);
+            this._submitHandler(this._card);
         })
-        
     }
 
     setCard(card) {
